@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113103708) do
+ActiveRecord::Schema.define(version: 20170113113259) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170113103708) do
     t.float    "norms"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "item_id"
   end
 
 end
