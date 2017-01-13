@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  name: MyString
+  norms: 1.5
+
+two:
+  number: MyString
+  name: MyString
+  norms: 1.5

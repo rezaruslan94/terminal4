@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :areas
+  resources :parts
   resources :departments
   resources :items
   resources :employes
