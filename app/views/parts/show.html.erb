@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Item:</strong>
+  <%= @part.item.try(:name) %>
+</p>
+
+<p>
   <strong>Number:</strong>
   <%= @part.number %>
 </p>

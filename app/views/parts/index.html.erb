@@ -8,6 +8,7 @@
       <th>Number</th>
       <th>Name</th>
       <th>Norms</th>
+      <th>Item</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= part.number %></td>
         <td><%= part.name %></td>
         <td><%= part.norms %></td>
+        <td><%= part.item.try(:name) %></td>
         <td><%= link_to 'Show', part %></td>
         <td><%= link_to 'Edit', edit_part_path(part) %></td>
         <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>

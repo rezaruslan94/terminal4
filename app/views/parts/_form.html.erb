@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :item %>
+    <%= f.collection_select(:item_id, Item.all, :id, :name, include_blank: true) %>
+  </div>
+
+  <div class="field">
     <%= f.label :number %>
     <%= f.text_field :number %>
   </div>
