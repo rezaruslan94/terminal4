@@ -21,6 +21,11 @@
     <%= f.collection_select(:part_id, Part.all, :id, :name, include_blank: true) %>
   </div>
 
+  <div class="field">
+    <%= f.label :area %>
+    <%= f.collection_select(:area_id, Area.all, :id, :name, include_blank: true) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
