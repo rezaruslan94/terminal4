@@ -16,6 +16,11 @@
     <%= f.text_field :wh %>
   </div>
 
+  <div class="field">
+    <%= f.label :part %>
+    <%= f.collection_select(:part_id, Part.all, :id, :name, include_blank: true) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

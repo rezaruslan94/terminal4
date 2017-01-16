@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116031146) do
+ActiveRecord::Schema.define(version: 20170116034021) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170116031146) do
     t.float    "wh"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "part_id"
   end
 
 end

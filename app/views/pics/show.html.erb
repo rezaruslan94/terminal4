@@ -4,6 +4,10 @@
   <strong>Wh:</strong>
   <%= @pic.wh %>
 </p>
+<p>
+  <strong>Part:</strong>
+  <%= @pic.part.try(:name) %>
+</p>
 
 <%= link_to 'Edit', edit_pic_path(@pic) %> |
 <%= link_to 'Back', pics_path %>
