@@ -12,6 +12,16 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :division %>
+    <%= f.collection_select(:division_id, Division.all, :id, :name, include_blank: true) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :employe %>
+    <%= f.collection_select(:employe_id, Employe.all, :id, :name, include_blank: true) %>
+  </div>
+
+  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>

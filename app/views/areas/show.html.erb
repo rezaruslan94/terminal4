@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Division:</strong>
+  <%= @area.division.try(:name) %>
+</p>
+
+<p>
+  <strong>Employe:</strong>
+  <%= @area.employe.try(:name) %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @area.name %>
 </p>
