@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Employe:</strong>
+  <%= @department.employe.try(:name) %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @department.name %>
 </p>

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Employe</th>
       <th>Name</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
   <tbody>
     <% @departments.each do |department| %>
       <tr>
+        <td><%= department.employe.try(:name) %>
         <td><%= department.name %></td>
         <td><%= link_to 'Show', department %></td>
         <td><%= link_to 'Edit', edit_department_path(department) %></td>
