@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :wh %>
-    <%= f.text_field :wh %>
+    <%= f.label :area %>
+    <%= f.collection_select(:area_id, Area.all, :id, :name, include_blank: true) %>
   </div>
 
   <div class="field">
@@ -22,8 +22,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :area %>
-    <%= f.collection_select(:area_id, Area.all, :id, :name, include_blank: true) %>
+    <%= f.label :wh %>
+    <%= f.text_field :wh %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qty %>
+    <%= f.text_field :qty %>
   </div>
 
   <div class="actions">

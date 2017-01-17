@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170116091811) do
 
   create_table "pics", force: :cascade do |t|
     t.float    "wh"
+    t.float    "qty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "part_id"

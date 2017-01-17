@@ -17,7 +17,7 @@ class PicsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create pic" do
     assert_difference('Pic.count') do
-      post pics_url, params: { pic: { wh: @pic.wh } }
+      post pics_url, params: { pic: { qty: @pic.qty, wh: @pic.wh } }
     end
 
     assert_redirected_to pic_url(Pic.last)
@@ -34,7 +34,7 @@ class PicsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update pic" do
-    patch pic_url(@pic), params: { pic: { wh: @pic.wh } }
+    patch pic_url(@pic), params: { pic: { qty: @pic.qty, wh: @pic.wh } }
     assert_redirected_to pic_url(@pic)
   end
 

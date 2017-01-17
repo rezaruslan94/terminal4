@@ -1,16 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Wh:</strong>
-  <%= @pic.wh %>
+  <strong>Area:</strong>
+  <%= @pic.area.try(:name) %>
 </p>
+
 <p>
   <strong>Part:</strong>
   <%= @pic.part.try(:name) %>
 </p>
+
 <p>
-  <strong>Area:</strong>
-  <%= @pic.area.try(:name) %>
+  <strong>Wh:</strong>
+  <%= @pic.wh %>
+</p>
+
+<p>
+  <strong>Qty:</strong>
+  <%= @pic.qty %>
 </p>
 
 <%= link_to 'Edit', edit_pic_path(@pic) %> |
