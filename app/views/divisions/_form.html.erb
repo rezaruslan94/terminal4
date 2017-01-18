@@ -26,6 +26,11 @@
     <%= f.text_field :name %>
   </div>
 
+  <%= division do |builder| %>
+  <%= render 'order_divisions', f: builder, locals: {a: a} %>
+  <% end %>
+  <%= link_to_add_divisions "Add Division Item", f, :divisions %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
