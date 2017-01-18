@@ -1,3 +1,4 @@
+module ApplicationHelper
 def link_to_add_areas(name, f, association)
   new_object = f.object.send(association).klass.new
   id = new_object.object_id
@@ -5,4 +6,5 @@ def link_to_add_areas(name, f, association)
     render(association.to_s.singularize + "_fields", f: builder)
   end
   link_to(name, '#', class: "add_areas", data: {id: id, fields: fields.gsub("\n", "")})
+end
 end
