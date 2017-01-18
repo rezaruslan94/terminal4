@@ -15,6 +15,7 @@ class DivisionsController < ApplicationController
   # GET /divisions/new
   def new
     @division = Division.new
+    @division.areas.build
   end
 
   # GET /divisions/1/edit

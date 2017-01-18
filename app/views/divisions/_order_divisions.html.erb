@@ -1,6 +1,6 @@
 <fieldset>
-  <%= f.select :name, %w[text_field] %>
-  <%= f.text_field :name %>
+  <%= f.collection_select(:employe_id, Employe.all, :id, :name) %>
+  <%= f.number_field :name %>
   <%= f.hidden_field :_destroy %>
-  <%= link_to '[remove]', '#', class: 'remove_divisions' %>
+  <%= link_to '[remove]', '#', class: 'remove_areas' %>
 </fieldset>
