@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :employees
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :divisions
   resources :pics
   resources :areas
   resources :parts
   resources :departments
   resources :items
-  resources :employes
   root 'pages#home'
 
 
