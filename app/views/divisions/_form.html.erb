@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-  <%= f.label :employe %>
-  <%= f.collection_select(:employe_id, Employe.all, :id, :name, include_blank: true) %>
-  </div>
+
 
   <div class="field">
   <%= f.label :department %>
@@ -23,13 +20,13 @@
 
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+
   </div>
 
-  <%= f.fields_for :areas do |builder| %>
-    <%= render 'order_divisions', f: builder, locals: {division: division} %>
+  <%= f.fields_for :divisions do |builder| %>
+    <%= render 'area_fields', f: builder, locals: {division: division} %>
   <% end %>
-  <%= link_to_add_areas "Add Order Item", f, :areas %>
+  <%= link_to_add_areas "Add Area", f, :areas %>
 
   <div class="actions">
     <%= f.submit %>
