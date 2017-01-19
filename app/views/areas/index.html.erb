@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Employe</th>
+      <th>Employee</th>
       <th>Division</th>
       <th>Name</th>
       <th colspan="3"></th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @areas.each do |area| %>
       <tr>
-        <td><%= area.employe.try(:name) %>
+        <td><%= area.employee.try(:name) %>
         <td><%= area.division.try(:name) %>
         <td><%= area.name %></td>
         <td><%= link_to 'Show', area %></td>

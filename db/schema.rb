@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119093147) do
+ActiveRecord::Schema.define(version: 20170119105018) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "employe_id"
     t.integer  "division_id"
+    t.integer  "employee_id"
   end
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "employe_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "employee_id"
   end
 
   create_table "divisions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "employe_id"
     t.integer  "department_id"
+    t.integer  "employee_id"
   end
 
   create_table "employees", force: :cascade do |t|
