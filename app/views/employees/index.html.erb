@@ -2,7 +2,7 @@
 
 <h1>Employees</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,6 +19,7 @@
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%= will_paginate @employees %>
   </tbody>
 </table>
 

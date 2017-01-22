@@ -2,7 +2,7 @@
 
 <h1>Areas</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Employee</th>
@@ -23,6 +23,7 @@
         <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%= will_paginate @areas %>
   </tbody>
 </table>
 

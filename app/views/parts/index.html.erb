@@ -2,7 +2,7 @@
 
 <h1>Parts</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Number</th>
@@ -25,6 +25,7 @@
         <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%= will_paginate @articles %>
   </tbody>
 </table>
 

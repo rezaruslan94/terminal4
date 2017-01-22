@@ -4,7 +4,7 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
-    @areas = Area.all
+    @areas = Area.all.order('created_at DESC').paginate(page:params[:page], per_page: 5)
   end
 
   # GET /areas/1

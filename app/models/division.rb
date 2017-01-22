@@ -1,5 +1,5 @@
 class Division < ApplicationRecord
-  belongs_to :employee
+  belongs_to :employee, optional: true
   belongs_to :department
   has_many :areas, inverse_of: :division
 

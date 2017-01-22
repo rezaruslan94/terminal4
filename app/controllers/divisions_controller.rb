@@ -4,7 +4,7 @@ class DivisionsController < ApplicationController
   # GET /divisions
   # GET /divisions.json
   def index
-    @divisions = Division.all
+    @divisions = Division.all.order('created_at DESC').paginate(page:params[:page], per_page: 5)
   end
 
   # GET /divisions/1
@@ -25,6 +25,13 @@ class DivisionsController < ApplicationController
   # POST /divisions
   # POST /divisions.json
   def create
+    puts division_params.inspect
+    puts "======================"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
+    puts "\n"
     @division = Division.new(division_params)
 
     respond_to do |format|
@@ -70,6 +77,10 @@ class DivisionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def division_params
-      params.require(:division).permit(:name, :employee_id, :department_id)
+      params.require(:division).permit(
+        :department_id,
+        :employee_id, :name,
+        areas_attributes: [:id, :employee_id, :name, :_destroy]
+      )
     end
 end
