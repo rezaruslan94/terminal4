@@ -15,6 +15,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/new
   def new
     @department = Department.new
+    @department.divisions.build
   end
 
   # GET /departments/1/edit
@@ -69,6 +70,9 @@ class DepartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def department_params
-      params.require(:department).permit(:name, :employee_id)
+      params.require(:department).permit(
+      :name, :employee_id,
+      divisions_attributes: [:id, :employee_id, :name, :_destroy]
+      )
     end
 end
