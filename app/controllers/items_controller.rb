@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @item.parts.build
   end
 
   # GET /items/1/edit
@@ -69,6 +70,8 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name)
+      params.require(:item).permit(
+      :name,
+      parts_attributes: [:id, :number, :name, :norms, :_destroy])
     end
 end

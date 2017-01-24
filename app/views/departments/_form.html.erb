@@ -18,13 +18,13 @@
 
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Department Name" %>
   </div>
 
   <%= f.fields_for :divisions do |builder| %>
     <%= render 'division_fields', f: builder, locals: {department: department} %>
   <% end %>
-  <%= link_to_add_divisions "Add Area", f, :divisions %>
+  <%= link_to_add_divisions "Add Division", f, :divisions %>
 
   <div class="actions">
     <%= f.submit %>
