@@ -31,7 +31,17 @@
     <%= f.text_field :qty %>
   </div>
 
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.text_field :date,:id => "dp" %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+$( "#dp" ).datepicker({
+  dateFormat: 'dd-mm-yy',
+  inline: true
+});
+</script>

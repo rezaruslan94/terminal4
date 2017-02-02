@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contoh Penggunaan Atribut Colspan dan Rowspan Tag Tabel</title>
+<link href="stylesheets/jquery-ui.css.erb" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h3><center><b>LAPORAN PRODUKTIVITAS PRODUKSI </b></center></h3>
+<center><table border="1" width="600px">
+<br>
+<center>
+  <table width="600px">
+    <tr><left>
+      <input id="dp" type="text" size="15" />
+      <input id="dp2" type="text" size="15" />
+
+      <script type="text/javascript">
+        $( "#dp" ).datepicker({
+          dateFormat: 'dd-mm-yy',
+          inline: true
+        });
+      </script>
+
+      <script type="text/javascript">
+        $( "#dp2" ).datepicker({
+          dateFormat: 'dd-mm-yy',
+          inline: true
+        });
+      </script>
+    </center>
+  </left>
+    </tr>
+    <tr>
+      <td>Periode :</td>
+    </tr>
+</table>
+  <br>
+  <table border="1"  width="600px">
+
+    <tr><b>
+        <td  width="80px"><b><center>Bagian</center></td>
+        <td width="80px"><center><b>Area</td>
+        <td><b><center>PIC</td>
+        <td><b><center>EH</td>
+        <td><b><center>WH</td>
+        <td><b><center>P</td>
+    </b></tr>
+    <tr>
+      <tbody>
+      <% @pics.each do |pic| %>
+        <tr>
+          <td colspan="2"><%= pic.area.name %></td>
+          <td><%= pic.area.employee.name %></td>
+          <td></td>
+          <td><%= pic.wh %></td>
+          <td></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </tr>
+    <tr>
+        <td colspan="2" ><b>PEMBAHANAN</b></td>
+        <td><b>SUPRAYITNO</b></td>
+        <td><b>4645</b></td>
+        <td><b>546</b></td>
+        <td><b>23</b></td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+      <td><b>IKROM (TOTAL KESELURUHAN)</b></td>
+    </tr>
+
+</table>
+<br>
+
+<br>
+
+
+
+</center>
+
+
+</body>
+</html>
