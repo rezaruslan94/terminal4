@@ -1,13 +1,7 @@
 class ReportsController < ApplicationController
   def productivity_person
-    # @pics = Pic.uniq
-    #@pics = Pic.where(created_at: '2017-01-30 04:36:14.539234'..'2017-02-01 12:41:47.348653')
-
-    @pics = Pic.where(date: (params[:start])..(params[:end]))
-    #@parts = Part.uniq.all
-    #@employees = Employee.all
-    #@areas = Area.all
-
+    # @pics = Pic.where(date: (params[:start])..(params[:end]))
+    @pics = Pic.group(:part_id).having(date: (params[:start])..(params[:end]))
     @parts = Part.all
   end
 

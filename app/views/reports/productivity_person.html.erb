@@ -14,7 +14,7 @@
       <%= form_tag('/report_person', method: :get) do %>
       <%= text_field_tag 'start'%>
       <%= text_field_tag 'end'%>
-      <%= submit_tag 'save' %>
+      <%= submit_tag 'Show' %>
       <% end %>
       <!-- <input id="dp" type="text" size="15" />
       <input id="dp2" type="text" size="15" /> -->
@@ -32,7 +32,7 @@
     </tr>
 </table>
 <br>
-<p>Tabel Atas
+<p>Show With Range Date
 <center><table border="1"  width="600px">
     <tr><b>
         <td  width="80px"><b><center>Part No.</center></td>
@@ -59,7 +59,7 @@
 </table>
 <br>
 
-<p>Tabel Bawah
+<p>Show With Rekap But Without Range Date
 <center><table border="1"  width="600px">
     <tr><b>
         <td  width="80px"><b><center>Part No.</center></td>
@@ -109,25 +109,51 @@
     </b></tr>
     <tr>
       <tbody>
-
-      <% @pics.each do |pic| %>
-        <tr>
-          <% @parts.each do |part| %>
+        <% @pics.each do |pic| %>
+          <tr>
+            <% @parts.each do |part| %>
+              <tr>
+                <td><%= part.number %></td>
+                <td><%= part.name %></td>
+                <td>
+                  <%= part.pics.sum(:qty)%>
+                </td>
+                <td>
+                  <%= part.pics.count.to_f * part.norms %>
+                </td>
+                <td><%= (part.pics.sum(:qty)) * (part.pics.count.to_f * part.norms)%></td>
+                <td><%#= part.pic.qty  + part.pic.wh %></td>
+              </tr>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </tr>
+</table>
+<br>
+<p>Table 4
+<center><table border="1"  width="600px">
+    <tr><b>
+        <td  width="80px"><b><center>Part No.</center></td>
+        <td width="200px"><center><b>Part Name</td>
+        <td><b><center>Qty</td>
+        <td><b><center>Norms (HPU)</td>
+        <td><b><center>Earned Hour</td>
+    </b></tr>
+    <tr>
+      <tbody>
+        <% @parts.each do |part| %>
+          <% @pics.each do |pic| %>
             <tr>
-              <td><%= part.number %></td>
-              <td><%= part.name %></td>
-              <td>
-                <%= part.pics.sum(:qty)%>
-              </td>
-              <td>
-                <%= part.pics.count.to_f * part.norms %>
-              </td>
-              <td><%= (part.pics.sum(:qty)) * (part.pics.count.to_f * part.norms)%></td>
-              <td><%#= part.pic.qty  + part.pic.wh %></td>
+              <td><%= pic.part.number %></td>
+              <td><%= pic.part.name %></td>
+              <td><%= pic.qty %></td>
+              <td><%= pic.part.norms %></td>
+              <td><%= pic.qty  + pic.wh %></td>
             </tr>
           <% end %>
-        </tr>
-      <% end %>
+
+        <% end %>
       </tbody>
     </tr>
 

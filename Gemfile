@@ -53,3 +53,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails_admin', '~> 1.0'
 gem 'will_paginate', '~> 3.0'
+gem 'hirb-unicode'
