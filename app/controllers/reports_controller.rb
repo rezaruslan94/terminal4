@@ -1,7 +1,8 @@
 class ReportsController < ApplicationController
   def productivity_person
     # @pics = Pic.where(date: (params[:start])..(params[:end]))
-    @pics = Pic.group(:part_id).having(date: (params[:start])..(params[:end]))
+    @pics = Pic.where(date: (params[:start])..(params[:end])).group(:part_id)
+    @pics_sum = @pics.sum(:qty)
     @parts = Part.all
   end
 
