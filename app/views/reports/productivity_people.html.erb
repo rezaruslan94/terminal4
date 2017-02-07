@@ -11,22 +11,13 @@
 <center>
   <table width="600px">
     <tr><left>
-      <input id="dp" type="text" size="15" />
-      <input id="dp2" type="text" size="15" />
+      <%= form_tag('/report_people', method: :get) do %>
+      <%= text_field_tag 'start'%>
+      <%= text_field_tag 'end'%>
+      <%= submit_tag 'Show' %>
+      <% end %>
 
-      <script type="text/javascript">
-        $( "#dp" ).datepicker({
-          dateFormat: 'dd-mm-yy',
-          inline: true
-        });
-      </script>
 
-      <script type="text/javascript">
-        $( "#dp2" ).datepicker({
-          dateFormat: 'dd-mm-yy',
-          inline: true
-        });
-      </script>
     </center>
   </left>
     </tr>
@@ -82,3 +73,16 @@
 
 </body>
 </html>
+<script type="text/javascript">
+  $( "#start" ).datepicker({
+    dateFormat: 'dd-mm-yy',
+    inline: true
+  });
+</script>
+
+<script type="text/javascript">
+  $( "#end" ).datepicker({
+    dateFormat: 'dd-mm-yy',
+    inline: true
+  });
+</script>
