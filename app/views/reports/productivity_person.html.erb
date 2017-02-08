@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,24 +9,23 @@
 <body>
 <h3><center><b>LAPORAN PRODUKTIVITAS PRODUKSI PERSON </b></center></h3>
 <center>
-
-  <%#= @pics.count %>
   <table width="600px">
     <tr><left>
       <%= form_tag('/report_person', method: :get) do %>
       <%= text_field_tag 'start'%>
       <%= text_field_tag 'end'%>
+      <%= select_tag 'area_id', options_for_select(Area.all.map{|e| [e.name, e.id]}) %>
       <%= submit_tag 'Show' %>
       <% end %>
-      <!-- <input id="dp" type="text" size="15" />
-      <input id="dp2" type="text" size="15" /> -->
     </center>
   </left>
     </tr>
     <tr>
       <td>Periode :</td>
       <td>Karu :</td>
-      <td>Area :</td>
+      <td>Area :
+
+      </td>
     </tr>
     <tr>
       <td>EH :</td>
@@ -43,7 +44,6 @@
     </b></tr>
     <tr>
       <tbody>
-
       <% @pics.each do |pic| %>
         <tr>
           <td><%= pic.part.number %></td>

@@ -6,71 +6,57 @@
 </head>
 <body>
 <h3><center><b>LAPORAN PRODUKTIVITAS PRODUKSI </b></center></h3>
-<center><table border="1" width="600px">
-<br>
-<center>
-  <table width="600px">
-    <tr><left>
-      <%= form_tag('/report_people', method: :get) do %>
-      <%= text_field_tag 'start'%>
-      <%= text_field_tag 'end'%>
-      <%= submit_tag 'Show' %>
-      <% end %>
-
-
-    </center>
-  </left>
-    </tr>
-    <tr>
-      <td>Periode :</td>
-    </tr>
-</table>
-  <br>
-  <table border="1"  width="600px">
-
-    <tr><b>
+  <center>
+    <table border="1" width="600px">
+      <br>
+      <table width="600px">
+        <center>
+        <tr><left>
+          <%= form_tag('/report_people', method: :get) do %>
+          <%= text_field_tag 'start'%>
+          <%= text_field_tag 'end'%>
+          <%= submit_tag 'Show' %>
+          <% end %>
+        </left>
+        </tr>
+        <tr>
+          <td>Periode :</td>
+        </tr>
+        </center>
+      </table>
+      <br>
+    </table>
+    <table border="1"  width="600px">
+      <tr><b>
         <td  width="80px"><b><center>Bagian</center></td>
         <td width="80px"><center><b>Area</td>
         <td><b><center>PIC</td>
         <td><b><center>EH</td>
         <td><b><center>WH</td>
         <td><b><center>P</td>
-    </b></tr>
-    <tr>
-      <tbody>
-      <% @pics.each do |pic| %>
-        <tr>
-          <td colspan="2"><%= pic.area.name %></td>
-          <td><%= pic.area.employee.name %></td>
-          <td></td>
-          <td><%= pic.wh %></td>
-          <td></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </tr>
-    <tr>
+        </b></tr>
+      <tr>
+        <tbody>
+          <% @pics.each do |pic| %>
+            <tr>
+              <td colspan="2"><%= pic.area.name %></td>
+              <td><%= pic.area.employee.name %></td>
+              <td><%= pic.total_wh  * pic.part.norms %></td>
+              <td><%= pic.total_wh %></td>
+              <td><%= ((pic.total_wh  * pic.part.norms) / pic.total_wh) * 100 %>%</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </tr>
+      <tr>
         <td colspan="2" ><b>PEMBAHANAN</b></td>
-        <td><b>SUPRAYITNO</b></td>
-        <td><b>4645</b></td>
-        <td><b>546</b></td>
-        <td><b>23</b></td>
-    </tr>
-    <tr>
-      <td colspan="2"></td>
-      <td><b>IKROM (TOTAL KESELURUHAN)</b></td>
-    </tr>
-
-</table>
-<br>
-
-<br>
-
-
-
-</center>
-
-
+        
+      </tr>
+      <tr>
+        <td colspan="2" ><b>PEMESIN</b></td>
+      </tr>
+    </table>
+  </center>
 </body>
 </html>
 <script type="text/javascript">
