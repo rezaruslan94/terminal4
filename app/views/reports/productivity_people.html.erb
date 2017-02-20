@@ -6,6 +6,7 @@
 </head>
 <body>
 <h3><center><b>LAPORAN PRODUKTIVITAS PRODUKSI </b></center></h3>
+
   <center>
     <table border="1" width="600px">
       <br>
@@ -20,7 +21,7 @@
         </left>
         </tr>
         <tr>
-          <td>Periode :</td>
+          <td>Periode : <%#= @pics.sum(:wh) %></td>
         </tr>
         </center>
       </table>
@@ -38,7 +39,7 @@
       <tr>
         <tbody>
           <% @pics.each do |pic| %>
-            <tr>
+            <tr >
               <td colspan="2"><%= pic.area.name %></td>
               <td><%= pic.area.employee.name %></td>
               <td><%= pic.total_wh  * pic.part.norms %></td>
@@ -49,13 +50,30 @@
         </tbody>
       </tr>
       <tr>
-        <td colspan="2" ><b>PEMBAHANAN</b></td>
-        
+        <tbody>
+          <% @pics.each do |pic| %>
+            <tr >
+              <td colspan="2"><b><%= pic.area.division.name %></b></td>
+              <td><b><%= pic.area.division.employee.name %></td>
+              <td><b><%= pic.total_wh  * pic.part.norms %></b></td>
+              <td><b><%= pic.total_wh %></b></td>
+              <td><b><%= ((pic.total_wh  * pic.part.norms) / pic.total_wh) * 100 %>%</b></td>
+            </tr>
+          <% end %>
+        </tbody>
       </tr>
-      <tr>
-        <td colspan="2" ><b>PEMESIN</b></td>
+      <tr >
+        <td colspan="2" > <b>PRODUKSI</b></td>
+        <td><b>IKROM</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
+
+
+
+    <br><br>
   </center>
 </body>
 </html>

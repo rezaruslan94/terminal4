@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!
     def productivity_person
       @pics = Pic.select('part_id, sum(qty) as total_qty, area_id').where(pic_date: (params[:start])..(params[:end])).where(area_id: (params[:area_id])).group(:part_id)
       @parts = Part.where(id: @pics.collect(&:part_id))
