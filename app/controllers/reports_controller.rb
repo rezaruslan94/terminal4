@@ -12,6 +12,18 @@ class ReportsController < ApplicationController
     @parts = Part.where(id: @pics.collect(&:part_id))
     @areas = Area.where(id: @pics.collect(&:area_id))
     @employees = Employee.all
+    @division = Division.all
+    @report_data = Pic.report_data(params[:start_date], params[:end_date])
+  end
+
+  def test
+    @pics = Pic.select('part_id, area_id').all
+    @areas = Area.select('division_id').all
+    @departments = Department.all
+    @divisions =Division.all
+    @parts = Part.all
+    @employees = Employee.all
+    @report_data = Pic.report_data(params[:start_date], params[:end_date])
   end
 
   def report_params

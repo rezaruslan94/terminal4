@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170220061932) do
 
-  create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "areas", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20170220061932) do
     t.integer  "employee_id"
   end
 
-  create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "employee_id"
   end
 
-  create_table "divisions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "divisions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -35,38 +35,38 @@ ActiveRecord::Schema.define(version: 20170220061932) do
     t.integer  "employee_id"
   end
 
-  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "employees", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "parts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "parts", force: :cascade do |t|
     t.string   "number"
     t.string   "name"
-    t.float    "norms",      limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.float    "norms"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "item_id"
   end
 
-  create_table "pics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.float    "wh",         limit: 24
-    t.float    "qty",        limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+  create_table "pics", force: :cascade do |t|
+    t.float    "wh"
+    t.float    "qty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "part_id"
     t.integer  "area_id"
     t.date     "pic_date"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20170220061932) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
