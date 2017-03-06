@@ -8,7 +8,7 @@
 #  adapter: sqlite3
 #  pool: 5
 #  timeout: 5000
-#
+
 #development:
 #  <<: *default
 #  database: db/development.sqlite3
@@ -28,17 +28,17 @@
       adapter: mysql2
       database: furnilac_app_reza_development
       username: root
-      password: root
+      password: 10451
       host: localhost
     test:
       adapter: mysql2
       database: furnilac_app_reza_test
       username: root
-      password: root
+      password: 10451
       host: localhost
     production:
       adapter: mysql2
       database: furnilac_app_reza_production
       username: root
-      password: root
+      password: 10451
       host: localhost
