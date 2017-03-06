@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'report_people' =>'reports#productivity_people', :as => :report_people
   get 'report_person' =>'reports#productivity_person', :as => :report_person
+  get 'test' =>'reports#test', :as => :test
   resources :users
 
 
