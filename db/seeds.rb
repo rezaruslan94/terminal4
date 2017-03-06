@@ -58,3 +58,4 @@ Part.create(:number => 'TLU 1002', :name => 'Palang Kaki A', :norms => '0.05', :
 Part.create(:number => 'TLU 1003', :name => 'Palang Kaki B', :norms => '0.065', :item_id => '1')
 Part.create(:number => 'TLU 1004', :name => 'Palang Kaki C', :norms => '0.015', :item_id => '1')
 Part.create(:number => 'TLU 1005', :name => 'Palang Kaki D', :norms => '0.065', :item_id => '1')
+

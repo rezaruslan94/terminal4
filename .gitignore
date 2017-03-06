@@ -19,7 +19,3 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-
-
-/db/seeds.rb
-/config/database.yml
