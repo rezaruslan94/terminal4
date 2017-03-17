@@ -47,8 +47,8 @@ group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+#  gem 'spring'
+#  gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'capistrano', '~> 3.7'
   gem 'capistrano-rails', '~> 1.2'
@@ -62,3 +62,7 @@ gem 'rails_admin', '~> 1.0'
 gem 'will_paginate', '~> 3.0'
 gem 'hirb-unicode'
 gem 'devise'
+gem 'prawn-rails'
+##GEM PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

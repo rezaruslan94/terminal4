@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Contoh Penggunaan Atribut Colspan dan Rowspan Tag Tabel</title>
+<title>TEST</title>
 <link href="stylesheets/jquery-ui.css.erb" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -16,6 +16,7 @@
           <%= form_tag('/test', method: :get) do %>
           <%= text_field_tag 'start_date'%>
           <%= text_field_tag 'end_date'%>
+          <%= select_tag 'area_combo', options_for_select(Area.all.map{|e| [e.name, e.id]}) %>
           <%= submit_tag 'Show' %>
           <% end %>
         </left>
@@ -25,132 +26,31 @@
         </tr>
         </center>
       </table>
-      Periode: <input type="text" name="periode">
-      <br>
-      <br>
     </table>
-    <br><br>
-    <table border="1" width="800px">
-  <thead>
-    <tr>
-      <th>Bagian</th>
-      <th>Area</th>
-      <th>PIC</th>
-      <th>EH</th>
-      <th>WH</th>
-      <th>P</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @report_data.each do |division_id, division_data| %>
-      <!-- tampilkan data area -->
-      <% division_data[:areas].each do |area_id, area_data| %>
+    <center><table border="1"  width="600px">
         <tr>
-          <td colspan="2"><%= area_data[:name] %></td>
-          <td><%= area_data[:pic_name] %></td>
-          <td><%= area_data[:eh] %></td>
-          <td><%= area_data[:wh] %></td>
-          <td><%= area_data[:p] %></td>
+          <th>Part No.</th>
+          <th>Part Name</th>
+          <th>Qty</th>
+          <th>Norms</th>
+          <th>Earned Hour</th>
         </tr>
-      <% end %>
-      <!-- tampilkan data bagian -->
-      <tr>
-        <td colspan="2"><b><%= division_data[:name] %></td>
-        <td><b><%= division_data[:pic_name] %></td>
-        <td><b><%= division_data[:eh] %></td>
-        <td><b><%= division_data[:wh] %></td>
-        <td><b><%= division_data[:p] %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-###############################################
-
-
-
-    <br><br>
-    <table border="1"  width="800px">
-      <tr><b>
-        <td  width="120px"><b><center>Bagian</center></td>
-        <td width="80px"><center><b>Area</td>
-        <td><b><center>PIC</td>
-        <td><b><center>EH</td>
-        <td><b><center>WH</td>
-        <td><b><center>P</td>
-        </b>
-      </tr>
-      <tr>
-        <body>
-          <% @pics.each do |pic| %>
-          <tr>
-            <td><%= pic.area.division.name %></td>
-            <td><%= pic.area.name %></td>
-            <td><%= pic.area.employee.name %></td>
-            <td><%= %></td>
-          </tr>
+        <tr>
+          <tbody>
+          <% @testa.each do |pic| %>
+            <tr>
+              <td><%= pic.part.number %></td>
+              <td><%= pic.part.name %></td>
+              <td><%= pic.total_qty %></td>
+              <td><%= pic.part.norms %></td>
+              <td><%= (pic.total_qty  * pic.part.norms).to_s(:rounded) %></td>
+            </tr>
           <% end %>
-        </body>
-      </tr>
+          </tbody>
+        </tr>
+
     </table>
-
-    <br><br>
-
-
-
-<% @divisons = Division.all %>
-
-    <table border="1"  width="1000px">
-      <tr><b>
-        <td  width="80px"><b><center>Bagian</center></td>
-        <td width="80px"><center><b>Area</td>
-        <td><b><center>PIC</td>
-          <td>Part</td>
-        <td><b><center>EH</td>
-        <td><b><center>WH</td>
-        <td><b><center>P</td>
-        </b></tr>
-      <tr>
-      <tbody>
-      <% @divisons.each do |division| %>
-      <% division.areas.each do |area| %>
-      <% @sum_wh = 0.0 %>
-      <% area.pics.each do |pic| %>
-      <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><%= pic.part.name %></td>
-          <td><%= area.pics.sum(:qty) * pic.part.norms %></td>
-          <td><%= pic.wh %></td>
-          <td><%= ((area.pics.sum(:qty) * pic.part.norms)/area.pics.sum(:wh))*100 %>%</td>
-      </tr>
-      <% end %>
-      <tr>
-          <td></td>
-          <td><%= area.name %></td>
-          <td><%= area.employee.name %></td>
-          <td></td>
-          <td><%=@sum_wh %></td>
-          <td><%= area.pics.sum(:wh) %></td>
-          <td></td>
-      </tr>
-      <% end %>
-      <tr >
-          <td colspan="2"><b><%= division.name %></b></td>
-          <td><%= division.employee.name %></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <% end %>
-      </tbody>
-      </tr>
-    </table>
-
-    <br><br>
-  </center>
-</body>
+<br><br>
 </html>
 <script type="text/javascript">
   $( "#start_date" ).datepicker({

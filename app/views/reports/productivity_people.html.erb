@@ -13,56 +13,18 @@
       <table width="600px">
         <center>
         <tr><left>
-          <%= form_tag('/report_people', method: :get) do %>
+          <%= form_tag('/report_people.pdf', method: :get) do %>
+          <!-- <%= form_tag(report_people_path(format: 'pdf'), method: :get) %> -->
           <%= text_field_tag 'start_date'%>
           <%= text_field_tag 'end_date'%>
-          <%= submit_tag 'Show' %>
+          <%= submit_tag 'show', disabled: false %>
           <% end %>
         </left>
-        </tr>
-        <tr>
-          <td>Periode : <%#= @pics.sum(:wh) %></td>
         </tr>
         </center>
       </table>
       <br>
     </table>
-    <br><br>
-    <table border="1" width="800px">
-  <thead>
-    <tr>
-      <th>Bagian</th>
-      <th>Area</th>
-      <th>PIC</th>
-      <th>EH</th>
-      <th>WH</th>
-      <th>P</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @report_data.each do |division_id, division_data| %>
-      <!-- tampilkan data area -->
-      <% division_data[:areas].each do |area_id, area_data| %>
-        <tr>
-          <td colspan="2"><%= area_data[:name] %></td>
-          <td><%= area_data[:pic_name] %></td>
-          <td><%= area_data[:eh] %></td>
-          <td><%= area_data[:wh] %></td>
-          <td><%= area_data[:p] %></td>
-        </tr>
-      <% end %>
-      <!-- tampilkan data bagian -->
-      <tr>
-        <td colspan="2"><b><%= division_data[:name] %></td>
-        <td><b><%= division_data[:pic_name] %></td>
-        <td><b><%= division_data[:eh] %></td>
-        <td><b><%= division_data[:wh] %></td>
-        <td><b><%= division_data[:p] %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
   </center>
 </body>
 </html>

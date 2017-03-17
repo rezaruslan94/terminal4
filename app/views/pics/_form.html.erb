@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :area %>
-    <%= f.collection_select(:area_id, Area.all, :id, :name, include_blank: true) %>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :area %></div>
+    <div class="col-md-1"><%= f.collection_select(:area_id, Area.all, :id, :name, include_blank: true) %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :part %>
-    <%= f.collection_select(:part_id, Part.all, :id, :name, include_blank: true) %>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :part %></div>
+    <div class="col-md-1"><%= f.collection_select(:part_id, Part.all, :id, :name, include_blank: true) %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :wh %>
-    <%= f.text_field :wh %>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :wh %></div>
+    <div class="col-md-1"><%= f.text_field :wh %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :qty %>
-    <%= f.text_field :qty %>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :qty %></div>
+    <div class="col-md-1"><%= f.text_field :qty %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :pic_date %><br>
-    <%= f.text_field :pic_date,:id => "dp" %>
-
+  <div class="row">
+    <div class="col-md-1"><%= f.label :pic_date %><br></div>
+    <div class="col-md-1"><%= f.text_field :pic_date,:id => "dp" %></div>
+<br><br><br>
   <div class="actions">
-    <%= f.submit %>
+    <div class="col-md-1"><%= f.submit %></div>
   </div>
 <% end %>
 <script type="text/javascript">

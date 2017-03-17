@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contoh Penggunaan Atribut Colspan dan Rowspan Tag Tabel</title>
+<link href="stylesheets/jquery-ui.css.erb" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h3><center><b>LAPORAN PRODUKTIVITAS PRODUKSI </b></center></h3>
+<p>Periode: </p>
+  <center>
+    <br><br>
+
+    <table border="1" width="800px">
+  <thead>
+    <tr>
+      <th>Bagian</th>
+      <th>Area</th>
+      <th>PIC</th>
+      <th>EH</th>
+      <th>WH</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @data_report_people.each do |division_id, division_data| %>
+      <!-- tampilkan data area -->
+      <% division_data[:areas].each do |area_id, area_data| %>
+        <tr>
+          <td colspan="2"><%= area_data[:name] %></td>
+          <td><%= area_data[:pic_name] %></td>
+          <td><%= area_data[:eh].to_s(:rounded) %></td>
+          <td><%= area_data[:wh] %></td>
+          <td><%= area_data[:p].to_s(:rounded) %>%</td>
+        </tr>
+      <% end %>
+      <!-- tampilkan data bagian -->
+      <tr>
+        <td colspan="2"><b><%= division_data[:name] %></td>
+        <td><b><%= division_data[:pic_name] %></td>
+        <td><b><%= division_data[:eh].to_s(:rounded) %></td>
+        <td><b><%= division_data[:wh] %></td>
+        <td><b><%= division_data[:p].to_s(:rounded) %>%</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  </center>
+</body>
+</html>
+<script type="text/javascript">
+  $( "#start_date" ).datepicker({
+    dateFormat: 'dd-mm-yy',
+    inline: true
+  });
+</script>
+
+<script type="text/javascript">
+  $( "#end_date" ).datepicker({
+    dateFormat: 'dd-mm-yy',
+    inline: true
+  });
+</script>

@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   resources :departments
   resources :items
   root 'pages#home'
+  # resources :reports, only: [:productivity_people, :productivity_person]
   get 'report_people' =>'reports#productivity_people', :as => :report_people
   get 'report_person' =>'reports#productivity_person', :as => :report_person
   get 'test' =>'reports#test', :as => :test
+  get 'show' =>'reports#show', :as => :show
   resources :users
 
 
