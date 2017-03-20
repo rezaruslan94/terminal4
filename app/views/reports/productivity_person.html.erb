@@ -35,29 +35,6 @@
 </table>
 <br>
 <!-- <p>Show With Range Date -->
-<center><table border="1"  width="600px">
-    <tr><b>
-        <td  width="80px"><b><center>Part No.</center></td>
-        <td width="200px"><center><b>Part Name</td>
-        <td><b><center>Qty</td>
-        <td><b><center>Norms (HPU)</td>
-        <td><b><center>Earned Hour</td>
-    </b></tr>
-    <tr>
-      <tbody>
-      <% @data_report_person.each do |pic| %>
-        <tr>
-          <td><%= pic.part.number %></td>
-          <td><%= pic.part.name %></td>
-          <td><%= pic.total_qty %></td>
-          <td><%= pic.part.norms %></td>
-          <td><%= (pic.total_qty  * pic.part.norms).to_s(:rounded) %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </tr>
-
-</table>
 <br><br><br>
 <script type="text/javascript">
   $( "#start_date" ).datepicker({

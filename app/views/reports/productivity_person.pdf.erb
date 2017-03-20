@@ -11,14 +11,28 @@
 <center>
   <table width="600px">
     <tr>
-      <td>Periode :</td>
-      <td>Karu :</td>
-      <td>Area :
+      <td>Periode : <%= params[:start_date] %> s/d <%= params[:end_date] %></td>
+      <td>Karu : <%= @area.employee.name %></td>
+      <td><b>Area :
+        <%= @area.name %>
+        </b>
       </td>
     </tr>
     <tr>
-      <td>EH :</td>
-      <td>WH : <%#= @pics.sum(:wh) %></td>
+      <td>EH :
+        <% total_eh = 0 %>
+        <% @data_report_person.each do |pic| %>
+          <% total_eh += (pic.total_qty  * pic.part.norms) %>
+        <% end %>
+        <%=  total_eh.to_s(:rounded) %>
+      </td>
+      <td>WH :
+        <% total_wh = 0 %>
+        <% @data_report_person.each do |pic| %>
+          <% total_wh += pic.wh %>
+          <% end %>
+        <%=  total_wh %>
+      </td>
     </tr>
 </table>
 <br>

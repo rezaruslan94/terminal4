@@ -3,6 +3,9 @@ class ReportsController < ApplicationController
 
     def productivity_person
       @data_report_person = Pic.data_report_person(params[:start_date], params[:end_date], params[:area_combo])
+      @area = Area.find(params[:area_combo]) if params[:area_combo].present?
+
+      logger.debug
       respond_to do |format|
         format.html
         format.pdf do
@@ -33,6 +36,6 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-  params.require(:pic).permit(:wh, :qty, :area_id, :part_id, :employee_id, :format)
+  params.require(:pic).permit(:wh, :qty, :area_id, :part_id, :employee_id, :start_date, :end_date, :format)
 end
 end
