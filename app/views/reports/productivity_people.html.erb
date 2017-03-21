@@ -13,8 +13,8 @@
       <table width="600px">
         <center>
         <tr><left>
-          <%= form_tag('/report_people.pdf', method: :get) do %>
-          <!-- <%= form_tag(report_people_path(format: 'pdf'), method: :get) %> -->
+          <%#= form_tag('/report_people.pdf', method: :get) do %>
+          <%= form_tag(report_people_path(format: 'pdf'), method: :get) do %>
           <%= text_field_tag 'start_date'%>
           <%= text_field_tag 'end_date'%>
           <%= submit_tag 'show', disabled: false %>
