@@ -10,11 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+<br><br>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+  <br>
 
   <%= f.fields_for :parts do |builder| %>
     <%= render 'part_fields', f: builder, locals: {item: item} %>

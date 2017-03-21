@@ -13,27 +13,29 @@
 
 
 
-  <div class="field">
-  <%= f.label :department %>
-  <%= f.collection_select(:department_id, Department.all, :id, :name, include_blank: true) %>
+  <div class="row">
+  <div class="col-md-2"><%= f.label :department %></div>
+  <div class="col-md-2"><%= f.collection_select(:department_id, Department.all, :id, :name, include_blank: true) %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :name, "Division Name" %></div>
+    <div class="col-md-2"><%= f.text_field :name %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.collection_select(:employee_id, Employee.all, :id, :name, include_blank: true) %>
+  <div class="row">
+    <div class="col-md-2"><%= f.label :name, "Employee Name" %></div>
+    <div class="col-md-2"><%= f.collection_select(:employee_id, Employee.all, :id, :name, include_blank: true) %></div>
   </div>
-
+  <br><br>
   <%= f.fields_for :areas do |builder| %>
     <%= render 'area_fields', f: builder, locals: {division: division} %>
   <% end %>
+  <br>
   <%= link_to_add_areas "Add Area", f, :areas %>
 
   <div class="actions">
-    <%= f.submit %>
+    <div class="col-md-1"><%= f.submit %></div>
   </div>
+  <br><br>
 <% end %>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Contoh Penggunaan Atribut Colspan dan Rowspan Tag Tabel</title>
+<title>FURNILAC PRIMAGUNA, PT.</title>
 <link href="stylesheets/jquery-ui.css.erb" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -11,27 +11,24 @@
 <center>
   <table width="600px">
     <tr>
-      <td>Periode : <%= params[:start_date] %> s/d <%= params[:end_date] %></td>
-      <td>Karu : <%= @area.employee.name %></td>
-      <td><b>Area :
-        <%= @area.name %>
-        </b>
-      </td>
+      <td><b>Periode : <%= params[:start_date] %> s/d <%= params[:end_date] %></b></td>
+      <td><b>Karu : <%= @area.employee.name %></b></td>
+      <td><b>Area : <%= @area.name %> </b> </td>
     </tr>
     <tr>
-      <td>EH :
+      <td><b>EH :
         <% total_eh = 0 %>
         <% @data_report_person.each do |pic| %>
           <% total_eh += (pic.total_qty  * pic.part.norms) %>
         <% end %>
-        <%=  total_eh.to_s(:rounded) %>
+        <%=  total_eh.to_s(:rounded) %></b>
       </td>
-      <td>WH :
+      <td><b>WH :
         <% total_wh = 0 %>
         <% @data_report_person.each do |pic| %>
           <% total_wh += pic.wh %>
           <% end %>
-        <%=  total_wh %>
+        <%=  total_wh %></b>
       </td>
     </tr>
 </table>
