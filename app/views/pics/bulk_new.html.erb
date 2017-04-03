@@ -1,0 +1,15 @@
+<%= form_for @area do |f|  %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= f.text_field :name, disabled: true %>
+    </div>
+  </div>
+  <% @area.pics.each do |pic| %>
+    <% if pic.new_record? %>
+      <%= f.fields_for :pics, pic do |pic_form_fields| %>
+        Name: <%= pic_form_fields.text_field :wh %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

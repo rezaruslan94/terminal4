@@ -1,5 +1,5 @@
 class Pic < ApplicationRecord
-  belongs_to :area
+  belongs_to :area, optional: true
   belongs_to :part
 
   def self.testa(start_date, end_date, area_combo)

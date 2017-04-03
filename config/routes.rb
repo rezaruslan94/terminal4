@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :divisions
   resources :pics
-  resources :areas
+  resources :area do
+    resources :pics do
+      collection do
+        get  :bulk_new
+        post :bulk_insert
+      end
+    end
+  end
   resources :parts
   resources :departments
   resources :items

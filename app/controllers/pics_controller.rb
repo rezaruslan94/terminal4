@@ -4,6 +4,28 @@ class PicsController < ApplicationController
 
   # GET /pics
   # GET /pics.json
+  def bulk_new
+    @area = Area.find params[:area_id]
+      (1..5).each do
+        @area.pics.build
+
+      end
+
+      logger.debug "isi area.pics: " + @area.pics.inspect
+
+  end
+
+  def bulk_insert
+      @area = Area.find(params[:area_id])
+      @pic = @area.pics.build(params[:pic])
+      if @pic.save
+        flash[:notice] = "Successfully created..."
+        redirect_to article_url(@pic.area_id)
+      else
+        render :action => 'new'
+      end
+  end
+
   def index
     @pics = Pic.all.order('created_at DESC').paginate(page:params[:page], per_page: 5)
   end

@@ -16,6 +16,7 @@ class AreasController < ApplicationController
   # GET /areas/new
   def new
     @area = Area.new
+    @area.pics.build
   end
 
   # GET /areas/1/edit
@@ -70,6 +71,7 @@ class AreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def area_params
-      params.require(:area).permit(:name, :employee_id, :division_id)
+      params.require(:area).permit(:name, :employee_id, :division_id,
+      pics_attributes: [:wh, :qty, :part_id, :area_id, :pic_date, :_destroy])
     end
 end
