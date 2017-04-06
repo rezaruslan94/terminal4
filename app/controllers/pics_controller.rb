@@ -1,5 +1,6 @@
 class PicsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_area, only: [:bulk_new, :bulk_insert]
   before_action :set_pic, only: [:show, :edit, :update, :destroy]
 
   # GET /pics
@@ -15,16 +16,19 @@ class PicsController < ApplicationController
 
   end
 
-  def bulk_insert
-      @area = Area.find(params[:area_id])
-      @pic = @area.pics.build(params[:pic])
-      if @pic.save
-        flash[:notice] = "Successfully created..."
-        redirect_to article_url(@pic.area_id)
-      else
-        render :action => 'new'
+  ###############
+    def bulk_insert
+      respond_to do |format|
+        if @area.update(pic_params)
+          format.html { redirect_to pics_url, notice: 'Area was successfully updated.' }
+          format.json { render :show, status: :ok, location: @area }
+        else
+          format.html { render :bulk_new }
+          format.json { render json: @area.errors, status: :unprocessable_entity }
+        end
       end
-  end
+    end
+  ##############
 
   def index
     @pics = Pic.all.order('created_at DESC').paginate(page:params[:page], per_page: 5)
@@ -90,8 +94,13 @@ class PicsController < ApplicationController
       @pic = Pic.find(params[:id])
     end
 
+    def set_area
+      @area = Area.find(params[:area_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def pic_params
-      params.require(:pic).permit(:wh, :qty, :area_id, :part_id, :pic_date)
+      params.require(:area).permit(
+      pics_attributes: [:wh, :qty, :part_id, :area_id, :pic_date])
     end
 end

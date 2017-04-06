@@ -1,13 +1,19 @@
-<%= form_for @area do |f|  %>
+<%= form_for(@area, url: bulk_insert_area_pics_path, method: :POST, html: { class: "edit_post", id: "edit_post_45" }) do |f| %>
   <div class="row">
-    <div class="col-md-1">
-      <%= f.text_field :name, disabled: true %>
+    <div class="col-md-3">
+      Area : <%= f.text_field :name, disabled: true %>
     </div>
   </div>
+  <br>
   <% @area.pics.each do |pic| %>
     <% if pic.new_record? %>
       <%= f.fields_for :pics, pic do |pic_form_fields| %>
-        Name: <%= pic_form_fields.text_field :wh %>
+      <fieldset>
+        Date : <%= pic_form_fields.text_field :pic_date, :class => "dp" %>
+        Wh : <%= pic_form_fields.text_field :wh %>
+        Qty : <%= pic_form_fields.text_field :qty %>
+        Part : <%= pic_form_fields.collection_select(:part_id, Part.all, :id, :name, include_blank: true) %>
+        </fieldset>
       <% end %>
     <% end %>
   <% end %>
