@@ -66,3 +66,5 @@ gem 'prawn-rails'
 ##GEM PDF
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+###
+gem 'jquery-datatables-rails', '~> 3.4.0'

@@ -4,3 +4,8 @@ $( document ).ready(function() {
     inline: true
   });
 });
+
+$( document ).ready(function() {
+    $('#datatables').DataTable({
+  });
+});
