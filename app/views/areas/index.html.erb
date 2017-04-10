@@ -8,7 +8,7 @@
       <th>Employee</th>
       <th>Division</th>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th>Action</th>
     </tr>
   </thead>
 
@@ -18,10 +18,10 @@
         <td><%= area.employee.try(:name) %>
         <td><%= area.division.try(:name) %>
         <td><%= area.name %></td>
-        <td><%= link_to 'Show', area %></td>
-        <td><%= link_to 'Edit', edit_area_path(area) %></td>
-        <td><%= link_to 'Bulk_New', bulk_new_area_pics_path(area) %></td>
-        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%#= link_to 'Show', area %></td>
+        <td><%#= link_to 'Edit', edit_area_path(area) %></td> -->
+        <td><%= link_to 'Insert', bulk_new_area_pics_path(area) %></td>
+        <!-- <td><%#= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
     <%= will_paginate @areas %>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Area', new_area_path %>
+<%#= link_to 'New Area', new_area_path %>

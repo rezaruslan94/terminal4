@@ -31,7 +31,10 @@ class PicsController < ApplicationController
   ##############
 
   def index
-    @pics = Pic.all.order('created_at DESC').paginate(page:params[:page], per_page: 5)
+    respond_to do |format|
+      format.html
+      format.json { render json: PicDatatable.new(view_context) }
+    end
   end
 
   # GET /pics/1
