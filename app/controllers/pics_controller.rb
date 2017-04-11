@@ -7,13 +7,8 @@ class PicsController < ApplicationController
   # GET /pics.json
   def bulk_new
     @area = Area.find params[:area_id]
-      (1..5).each do
-        @area.pics.build
-
-      end
-
+        @area.pics.build(wh: 8)
       logger.debug "isi area.pics: " + @area.pics.inspect
-
   end
 
   ###############

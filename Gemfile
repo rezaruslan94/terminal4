@@ -69,3 +69,7 @@ gem 'wkhtmltopdf-binary'
 ###
 gem 'jquery-datatables-rails'
 gem 'ajax-datatables-rails'
+
+gem "nested_form"
+
+gem "select2-rails"

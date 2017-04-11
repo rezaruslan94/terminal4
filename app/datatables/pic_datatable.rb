@@ -6,14 +6,12 @@ class PicDatatable < AjaxDatatablesRails::Base
   # include AjaxDatatablesRails::Extensions::SimplePaginator
   def sortable_columns
     # Declare strings in this format: ModelName.column_name
-    #@sortable_columns ||= ['employees.name']
-    @sortable_columns ||= %w(Pic.area_id Pic.part_id Pic.wh Pic.qty Pic.pic_date)
+    @sortable_columns ||= %w(Area.name Part.number. Pic.wh Pic.qty Pic.pic_date)
   end
 
   def searchable_columns
     # Declare strings in this format: ModelName.column_name
-    #@searchable_columns ||= ['Pic.area_id' 'Pic.part_id' 'Pic.wh' 'Pic.qty' 'Pic.pic_date']
-    @sortable_columns ||= %w(Pic.area_id Pic.part_id Pic.wh Pic.qty Pic.pic_date)
+    @sortable_columns ||= %w(Area.name Part.number Pic.wh Pic.qty Pic.pic_date)
   end
 
   private
@@ -21,8 +19,8 @@ class PicDatatable < AjaxDatatablesRails::Base
   def data
     records.map do |record|
     {
-      '0' => record.area_id,
-      '1' => record.part_id,
+      '0' => record.area.name,
+      '1' => record.part.number,
       '2' => record.wh,
       '3' => record.qty,
       '4' => record.pic_date
@@ -32,8 +30,7 @@ class PicDatatable < AjaxDatatablesRails::Base
 
   def get_raw_records
     # insert query here
-    Pic.all
+    Pic.eager_load(:area, :part).distinct
   end
-
   # ==== Insert 'presenter'-like methods below if necessary
 end

@@ -1,7 +1,8 @@
-<fieldset>3
-  <%= f.collection_select(:part_id, Part.all, :id, :number, include_blank: true) %>
-  <%= f.text_field :wh, placeholder: "WH" %>
-  <%= f.text_field :qty, placeholder: "QTY" %>
-  <%= f.hidden_field :_destroy %>
-  <%= link_to '[remove]', '#', class: 'remove_areas' %>
+<fieldset>
+ Date : <%= f.text_field :pic_date, :class => "dp" %>
+ Wh : <%= f.text_field :wh %>
+ Qty : <%= f.text_field :qty %>
+ Part : <%= f.collection_select(:part_id, Part.all, :id, :number, include_blank: true) %>
+ <%= f.hidden_field :_destroy %>
+ <%= link_to '[remove]', '#', class: 'remove_pics' %>
 </fieldset>
