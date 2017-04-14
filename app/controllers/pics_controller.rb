@@ -7,7 +7,7 @@ class PicsController < ApplicationController
   # GET /pics.json
   def bulk_new
     @area = Area.find params[:area_id]
-        @area.pics.build(wh: 8)
+        @area.pics.build
       logger.debug "isi area.pics: " + @area.pics.inspect
   end
 
@@ -15,7 +15,7 @@ class PicsController < ApplicationController
     def bulk_insert
       respond_to do |format|
         if @area.update(pic_params)
-          format.html { redirect_to pics_url, notice: 'Area was successfully updated.' }
+          format.html { redirect_to pics_url, notice: 'Area was successfully save.' }
           format.json { render :show, status: :ok, location: @area }
         else
           format.html { render :bulk_new }

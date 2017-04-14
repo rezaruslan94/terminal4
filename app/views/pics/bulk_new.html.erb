@@ -11,11 +11,14 @@
             <%= pic_form_fields.text_field :pic_date, :class => "dp" %>
             <%= pic_form_fields.text_field :wh, :class => "wh" %>
             <%= pic_form_fields.text_field :qty %>
-            <%= pic_form_fields.collection_select(:part_id, Part.all, :id, :number, include_blank: true, :class => "select-beast")  %>
-            <%= pic_form_fields.link_to_remove "Remove" %>
+            <%= pic_form_fields.collection_select :part_id, Part.all, :id, :number, { include_blank: true }, { :class => "ComboPart" } %>
+            <%= pic_form_fields.link_to_remove "DESTROY", :id => "open-contacts-dialog-btn", :class => "btn btn-danger btn-sm", :method => :get %>
         <% end %>
     <% end %>
   <% end %>
-  <%= f.link_to_add "Add", :pics %>
-  <%= f.submit 'SAVE' %>
+  <div class="btn-group" role="group">
+    <%= f.link_to_add "ADD", :pics, :id => "open-contacts-dialog-btn", :class => "btn btn-primary btn-lg", :method => :get %>
+    <%= f.submit 'SAVE', :id => "open-contacts-dialog-btn", :class => "btn btn-success btn-lg", :method => :get %>
+  </div>
+
 <% end %>

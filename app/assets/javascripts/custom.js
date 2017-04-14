@@ -1,22 +1,37 @@
 $( document ).ready(function() {
-  $( ".dp" ).datepicker({
+  $(".dp" ).datepicker({
     dateFormat: 'dd-mm-yy',
     inline: true
   });
 });
+$( document ).ready(function() {
+  $(".ComboPart").select2({
+    width: '250px',
+    placeholder: "Choose a part",
+    allowClear: true
+  });
+});
 $(document).on('nested:fieldAdded', function(event){
-  // this field was just inserted into your form
   var field = event.field;
-  var wh = field.find('.wh')
-    wh.pic_form_fields.text_field(:wh)
-  // it's a jQuery object already! Now you can find date input
+  field.find('.wh').val($('#area_pics_attributes_0_wh').val());
+  console.log("nilai wh di baris pertama = " + $('#area_pics_attributes_0_wh').val());
+
+  field.find('.dp').val($('#area_pics_attributes_0_pic_date').val());
+
   var dateField = field.find('.dp');
-  // and activate datepicker on it
   dateField.datepicker({
     dateFormat: 'dd-mm-yy',
     inline: true
   });
-})
+
+  var dataDropdown = field.find('.ComboPart');
+  dataDropdown.select2({
+    width: '250px',
+    placeholder: "Choose a part",
+    // theme: "bootstrap",
+    allowClear: true
+  });
+});
 
 $(document).ready(function() {
   $('#PicDataTables').dataTable({
@@ -24,12 +39,5 @@ $(document).ready(function() {
     "serverSide": true,
     "ajax": $('#PicDataTables').data('source'),
     "pagingType": "full_numbers",
-  });
-});
-
-$(document).ready(function() {
-  $('#select-beast').selectize({
-      create: true,
-      sortField: 'text'
   });
 });

@@ -11,8 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require jquery_nested_form
+//= require select2
+//= require select2-full
+//= require select2_locale_pt-BR
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require bootstrap-sprockets
