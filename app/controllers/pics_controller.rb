@@ -7,7 +7,7 @@ class PicsController < ApplicationController
   # GET /pics.json
   def bulk_new
     @area = Area.find params[:area_id]
-        @area.pics.build
+        @area.pics.build(pic_date: Date.today)
       logger.debug "isi area.pics: " + @area.pics.inspect
   end
 

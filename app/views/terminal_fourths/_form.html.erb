@@ -1,0 +1,49 @@
+<%= form_for(terminal_fourth) do |f| %>
+  <% if terminal_fourth.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(terminal_fourth.errors.count, "error") %> prohibited this terminal_fourth from being saved:</h2>
+
+      <ul>
+      <% terminal_fourth.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-2"><%= f.label :po %></div>
+    <div class="col-md-2"><%= f.text_field :po %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= f.label :buyer_id %></div>
+    <div class="col-md-2"><%= f.collection_select(:buyer_id, Buyer.all, :id, :name, include_blank: true) %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= f.label :item_id %></div>
+    <div class="col-md-2"><%= f.collection_select(:item_id, Item.all, :id, :name, include_blank: true) %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= f.label :qty %></div>
+    <div class="col-md-2"><%= f.text_field :qty %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= f.label :terminal_inspect, "Inspect" %></div>
+    <div class="col-md-2"><%= f.text_field :terminal_inspect, :class => "dp" %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= f.label :terminal_stuffing, "Stuffing" %></div>
+    <div class="col-md-2"><%= f.text_field :terminal_stuffing, :class => "dp" %></div>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

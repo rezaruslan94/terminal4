@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
 
+  resources :terminal_fourths do
+    member do
+      get :edit_finish
+      post :update_finish
+    end
+  end
+  resources :buyers
+    resources :buyer do
+      resources :terminal_fourths do
+        collection do
+          get   :bulk_new
+          post  :bulk_insert
+        end
+      end
+    end
   devise_for :users
   resources :employees
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

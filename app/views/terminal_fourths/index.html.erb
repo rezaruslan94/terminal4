@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Terminal 4</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Po</th>
+      <th>Buyer</th>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Inspect</th>
+      <th>Stuffing</th>
+      <th colspan="3">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @terminal_fourths.each do |terminal_fourth| %>
+      <tr>
+        <td><%= terminal_fourth.po %></td>
+        <td><%= terminal_fourth.buyer.name %></td>
+        <td><%= terminal_fourth.item.name %></td>
+        <td><%= terminal_fourth.qty %></td>
+        <td><%= terminal_fourth.terminal_inspect %></td>
+        <td><%= terminal_fourth.terminal_stuffing %></td>
+
+        <td><%= link_to 'Update Finish',  edit_finish_terminal_fourth_path(terminal_fourth) %></td>
+        <td><%= link_to 'Edit', terminal_fourth_path(terminal_fourth) %></td>
+        <td><%= link_to 'Destroy', terminal_fourth, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <%#= will_paginate @terminal_fourths %>
+  </tbody>
+</table>

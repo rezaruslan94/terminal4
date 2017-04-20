@@ -1,0 +1,12 @@
+<%= form_for(@terminal_fourth, url: update_finish_terminal_fourth_path, method: :POST) do |f| %>
+  <div class="row">
+    <div class="col-md-3">
+      PO : <%= f.text_field :po, disabled: true %>
+    </div>
+    <div class="col-md-3">
+      Update Finish : <%= f.text_field :product_finish %>
+    </div>
+  </div>
+  <br>
+    <%= f.submit 'UPDATE', :id => "open-contacts-dialog-btn", :class => "btn btn-success btn-md", :method => :get %>
+<% end %>
