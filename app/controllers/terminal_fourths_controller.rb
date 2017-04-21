@@ -37,7 +37,10 @@ class TerminalFourthsController < ApplicationController
   # GET /terminal_fourths
   # GET /terminal_fourths.json
   def index
-    @terminal_fourths = TerminalFourth.all
+    respond_to do |format|
+      format.html
+      format.json { render json: TerminalFourthDatatable.new(view_context) }
+    end
   end
 
   # GET /terminal_fourths/1
@@ -106,7 +109,7 @@ class TerminalFourthsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def terminal_fourth_params
-      params.require(:buyer).permit(
+      params.require(:terminal_fourth).permit(
       terminal_fourths_attributes: [:po, :qty, :finish, :terminal_inspect, :terminal_stuffing, :buyer_id, :item_id]
       )
     end

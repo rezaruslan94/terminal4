@@ -10,6 +10,14 @@ class TerminalFourth < ApplicationRecord
     self.finish = finish.to_f + product_finish.to_f
   end
 
+  def set_finish
+    total_minus = 0
+    total_minus = qty.to_f - finish.to_f
+    return total_minus
+  end
+
+
+
   before_create do
     self.finish = 0
   end

@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Employee</th>
+      <th>Area</th>
       <th>Division</th>
-      <th>Name</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -16,8 +16,8 @@
     <% @areas.each do |area| %>
       <tr>
         <td><%= area.employee.try(:name) %>
-        <td><%= area.division.try(:name) %>
         <td><%= area.name %></td>
+        <td><%= area.division.try(:name) %>
         <!-- <td><%#= link_to 'Show', area %></td>
         <td><%#= link_to 'Edit', edit_area_path(area) %></td> -->
         <td><%= link_to 'Insert', bulk_new_area_pics_path(area) %></td>

@@ -16,6 +16,8 @@ class PicDatatable < AjaxDatatablesRails::Base
 
   private
 
+
+  def_delegators :@view, :link_to, :edit_pic_path
   def data
     records.map do |record|
     {
@@ -23,7 +25,9 @@ class PicDatatable < AjaxDatatablesRails::Base
       '1' => record.part.number,
       '2' => record.wh,
       '3' => record.qty,
-      '4' => record.pic_date
+      '4' => record.pic_date,
+      '5' => link_to('Edit', edit_pic_path(record)),
+      '6' => link_to('Destroy', record, method: :delete, data: {confirm: 'Are you sure?'})
     }
     end
   end
