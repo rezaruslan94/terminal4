@@ -12,9 +12,4 @@ RSpec.describe Pic, :type => :model do
     expect(pic).to respond_to(:part_id)
     expect(pic).to respond_to(:area_id)
   end
-
-  describe "relations" do
-    it { should belong_to(:area)}
-    it { should belong_to(:part)}
-  end
 end

@@ -15,9 +15,9 @@
   <tbody>
     <% @areas.each do |area| %>
       <tr>
-        <td><%= area.employee.try(:name) %>
+        <td><%= area.employee.try(:name) %></td>
         <td><%= area.name %></td>
-        <td><%= area.division.try(:name) %>
+        <td><%= area.division.try(:name) %></td>
         <!-- <td><%#= link_to 'Show', area %></td>
         <td><%#= link_to 'Edit', edit_area_path(area) %></td> -->
         <td><%= link_to 'Insert', bulk_new_area_pics_path(area) %></td>
