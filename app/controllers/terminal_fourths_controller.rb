@@ -9,7 +9,7 @@ class TerminalFourthsController < ApplicationController
 
   def bulk_insert
     respond_to do |format|
-      if @buyer.update(terminal_fourth_params)
+      if @buyer.update(insert_terminal_params)
         format.html { redirect_to terminal_fourths_url, notice: 'Buyer was successfully updated.' }
         format.json { render :show, status: :ok, location: @buyer }
       else
@@ -109,7 +109,11 @@ class TerminalFourthsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def terminal_fourth_params
-      params.require(:terminal_fourth).permit(
+      params.require(:terminal_fourth).permit(:po, :qty, :finish, :terminal_inspect, :terminal_stuffing, :buyer_id, :item_id, :product_finish)
+    end
+
+    def insert_terminal_params
+      params.require(:buyer).permit(
       terminal_fourths_attributes: [:po, :qty, :finish, :terminal_inspect, :terminal_stuffing, :buyer_id, :item_id]
       )
     end

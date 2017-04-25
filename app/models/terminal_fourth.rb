@@ -3,7 +3,7 @@ class TerminalFourth < ApplicationRecord
   belongs_to :item
   attr_accessor :product_finish
   validates :po, :qty, :terminal_inspect, :terminal_stuffing, :buyer_id, :item_id, presence: true
-  validates :qty, :finish, :numericality => {:greater_than => 0, :less_than => 9999999}
+  validates :qty, :numericality => {:greater_than => 0, :less_than => 9999999}
 
 
   before_update do
