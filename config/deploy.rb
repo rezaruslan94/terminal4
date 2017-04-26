@@ -11,7 +11,7 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 set :rvm_type, :auto
 set :rvm_ruby_version, '2.3.1'
 
-load File.expand_path("../set_rails_env.rake", __FILE__)
+
 
 namespace :deploy do
 
