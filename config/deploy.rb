@@ -11,8 +11,6 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 set :rvm_type, :auto
 set :rvm_ruby_version, '2.3.1'
 
-
-
 namespace :deploy do
 
   desc 'Runs rake db:migrate if migrations are set'
@@ -42,14 +40,17 @@ namespace :deploy do
   end
 
   after 'deploy:updated', 'deploy:migrate'
-end
 
-namespace :load do
-  task :defaults do
-    set :conditionally_migrate, fetch(:conditionally_migrate, false)
-    set :migration_role, fetch(:migration_role, :db)
-    set :migration_servers, -> { primary(fetch(:migration_role)) }
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
   end
+
+  after :publishing, 'deploy:restart'
+  after :finishing, 'deploy:cleanup'
+
 end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
