@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all.order('created_at DESC').paginate(page:params[:page], per_page: 5)
+    @items = Item.all.order('created_at DESC').paginate(page:params[:page], per_page: 10)
   end
 
   # GET /items/1
