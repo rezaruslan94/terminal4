@@ -16,7 +16,6 @@ RSpec.describe TerminalFourth, type: :model do
   describe "validations" do
     it { expect(terminal_fourth).to validate_presence_of(:po) }
     it { expect(terminal_fourth).to validate_numericality_of(:qty) }
-    it { expect(terminal_fourth).to validate_numericality_of(:finish) }
   end
 
   describe "relations" do
