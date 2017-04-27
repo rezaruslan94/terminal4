@@ -1,7 +1,7 @@
 set :stage, :production
 
 # Replace 192.168.1.3 with your server's IP address!
-server '192.168.1.3', user: 'furnilac', roles: %w{web app}
+server '192.168.1.3', user: 'furnilac', roles: %w{web app db}
 
 # server-based syntax
 # ======================
