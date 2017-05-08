@@ -1,4 +1,5 @@
 class TerminalFourthsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_buyer, only: [:bulk_new, :bulk_insert]
   before_action :set_terminal_fourth, only: [:show, :edit, :update, :destroy, :edit_finish, :update_finish]
 

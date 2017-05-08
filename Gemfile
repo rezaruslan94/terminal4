@@ -19,6 +19,7 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem "twitter-bootstrap-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -62,10 +63,14 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'rails_admin', '~> 1.0'
+
 gem 'will_paginate', '~> 3.0'
 gem 'hirb-unicode'
+
+###Admin and User
 gem 'devise'
+
+###Not Use
 gem 'prawn-rails'
 ##GEM PDF
 gem 'wicked_pdf'

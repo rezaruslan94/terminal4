@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :roles
   resources :terminal_fourths do
     member do
       get :edit_finish
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
     end
   devise_for :users
   resources :employees
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :divisions
   resources :pics
   resources :areas
@@ -39,6 +39,9 @@ Rails.application.routes.draw do
   get 'test' =>'reports#test', :as => :test
   get 'show' =>'reports#show', :as => :show
   resources :users
+  namespace :admin do
+    resources :users
+  end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
