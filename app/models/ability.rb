@@ -23,6 +23,8 @@ class Ability
       can [:destroy], [Buyer, TerminalFourth]
       can [:bulk_new], [Buyer, TerminalFourth]
       can [:bulk_insert], [Buyer, TerminalFourth]
+      can [:edit_finish], [Buyer, TerminalFourth]
+      can [:update_finish], [Buyer, TerminalFourth]
     else
       cannot :read, :all
     end
