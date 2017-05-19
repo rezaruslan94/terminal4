@@ -21,6 +21,8 @@ class Ability
       can [:create], [Buyer, TerminalFourth]
       can [:update], [Buyer, TerminalFourth]
       can [:destroy], [Buyer, TerminalFourth]
+      can [:bulk_new], [Buyer, TerminalFourth]
+      can [:bulk_insert], [Buyer, TerminalFourth]
     else
       cannot :read, :all
     end
