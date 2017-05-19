@@ -1,10 +1,12 @@
 class PicsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_area, only: [:bulk_new, :bulk_insert]
   before_action :set_pic, only: [:show, :edit, :update, :destroy]
 
   # GET /pics
   # GET /pics.json
+
   def bulk_new
     @area = Area.find params[:area_id]
         @area.pics.build(pic_date: Date.today)

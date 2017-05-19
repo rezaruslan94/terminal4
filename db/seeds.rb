@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(:email => 'user@gmail.com' , :password => 'reza10451')
 User.create(:email => 'admin@gmail.com' , :password => 'reza10451')
 
 Employee.create(:name => 'SUJOKO')
@@ -50,12 +49,3 @@ Area.create(:name => 'GKM', :division_id => '4', :employee_id => '13')
 Area.create(:name => ' CONVEYER', :division_id => '4', :employee_id => '14')
 Area.create(:name => 'SANDING', :division_id => '4', :employee_id => '15')
 Area.create(:name => 'FAPS', :division_id => '5', :employee_id => '17')
-
-Item.create(:name => 'TLU/0140/TG')
-
-Part.create(:number => 'TLU 1003', :name => 'Bahan Panel Top 2', :norms => '0.025', :item_id => '1')
-Part.create(:number => 'TLU 1002', :name => 'Palang Kaki A', :norms => '0.05', :item_id => '1')
-Part.create(:number => 'TLU 1003', :name => 'Palang Kaki B', :norms => '0.065', :item_id => '1')
-Part.create(:number => 'TLU 1004', :name => 'Palang Kaki C', :norms => '0.015', :item_id => '1')
-Part.create(:number => 'TLU 1005', :name => 'Palang Kaki D', :norms => '0.065', :item_id => '1')
-

@@ -69,10 +69,15 @@ gem 'hirb-unicode'
 
 ###Admin and User
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 ###Not Use
-gem 'prawn-rails'
-##GEM PDF
+  #API json
+  # gem 'active_model_serializers', '~> 0.10.0'
+  ####
+  gem 'prawn-rails'
+  ##GEM PDF
+###
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 ###

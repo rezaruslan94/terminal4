@@ -19,7 +19,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :employees
   resources :divisions
-  resources :pics
+  resources :pics do
+    collection do
+      get   :select2
+    end
+  end
   resources :areas
   resources :area do
     resources :pics do
@@ -29,7 +33,11 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :parts
+  resources :parts do
+    collection do
+      get   :select2
+    end
+  end
   resources :departments
   resources :items
   root 'pages#home'

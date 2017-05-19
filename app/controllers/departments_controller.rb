@@ -1,5 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_department, only: [:show, :edit, :update, :destroy]
 
   # GET /departments
@@ -11,6 +12,8 @@ class DepartmentsController < ApplicationController
   # GET /departments/1
   # GET /departments/1.json
   def show
+    # @department = Department.find(params[:department])
+    # authorize! :show, @department
   end
 
   # GET /departments/new

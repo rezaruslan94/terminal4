@@ -15,6 +15,7 @@ $( document ).ready(function() {
 
 $(document).on('nested:fieldAdded', function(event){
   var field = event.field;
+  //Untuk Add data di form
   field.find('.wh').val($('#area_pics_attributes_0_wh').val());
   console.log("nilai wh di baris pertama = " + $('#area_pics_attributes_0_wh').val());
 
@@ -44,7 +45,7 @@ $(document).ready(function() {
     "pagingType": "full_numbers",
     "columnDefs": [
       { "orderable": false, "targets": [5,6] }
-    ]    
+    ]
   });
 });
 
@@ -68,5 +69,27 @@ $(document).ready(function() {
     "columnDefs": [
       { "orderable": false, "targets": [4,7,8,9] }
     ]
+  });
+});
+
+// $( document ).ready(function() {
+//   $(".ComboPartTest").select2({
+//     width: '250px',
+//     placeholder: "Choose a part",
+//     allowClear: true
+//   });
+// });
+$( document ).ready(function() {
+  $(".ComboPartTest").select2({
+    width: '250px',
+    placeholder: "Choose a part",
+    allowClear: true,
+    ajax: {
+      processResults: function (data) {
+        return {
+          results: data.items
+        };
+      }
+    }
   });
 });

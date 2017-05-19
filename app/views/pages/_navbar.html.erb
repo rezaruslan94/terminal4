@@ -1,21 +1,24 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <!-- <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
+      </button> -->
       <!-- <a class="navbar-brand" href="#">Brand</a> -->
-      <li class="navbar-brand"><%= link_to 'Brand', root_path %></li>
-    </div>
+      <!-- <li class="navbar-brand"><%#= link_to 'Brand', root_path %></li>
+    </div> -->
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <% if can? :read, Employee %>
         <li><%= link_to 'Employee', employees_path %></li>
+        <% end %>
+        <% if can? :read, Department %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productivity <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -25,25 +28,40 @@
             <li><%= link_to 'Item', items_path %></li>
             <li><%#= link_to 'Part', parts_path %></li>
             <li><%= link_to 'PIC', pics_path %></li>
+            <%# if can? :read, Report %>
             <li><%= link_to "Report Person",report_person_path %></li>
+            <%# end %>
             <li><%= link_to "Report People",report_people_path %></li>
             <!-- <li><a href="report_people">test</a></li> -->
           </ul>
         </li>
+        <% end %>
+        <% if can? :read, TerminalFourth %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kanban <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Buyer', buyers_path %></li>
-            <li><%= link_to 'Terminal 4', terminal_fourths_path %></li>
+            <% if can? :read, Buyer %>
+              <li><%= link_to 'Buyer', buyers_path %></li>
+            <% end %>
+            <% if can? :read, TerminalFourth %>
+              <li><%= link_to 'Terminal 4', terminal_fourths_path %></li>
+            <% end %>
           </ul>
         </li>
+        <% end %>
+        <% if can? :read, User %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configuration<span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <% if can? :read, User %>
               <li><%= link_to 'User', admin_users_path %></li>
+            <% end %>
+            <% if can? :read, User %>
               <li><%= link_to 'Role', roles_path %></li>
+            <% end %>
           </ul>
         </li>
+        <% end %>
         <li>
           <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
         </li>

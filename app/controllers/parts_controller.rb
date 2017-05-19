@@ -1,9 +1,17 @@
 class PartsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :set_part, only: [:show, :edit, :update, :destroy]
 
   # GET /parts
   # GET /parts.json
+  def select2
+    @parts = Part.where(::Arel::Nodes::SqlLiteral.new('name').matches("%#{sanitize_sql_like(params[:q].to_s.trip.downcase)}%"))
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def index
     @parts = Part.all.order('created_at DESC').paginate(page:params[:page], per_page: 5)
   end

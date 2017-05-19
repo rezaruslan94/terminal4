@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!
+  # load_and_authorize_resource
 
     def productivity_person
       @data_report_person = Pic.data_report_person(params[:start_date], params[:end_date], params[:area_combo])
