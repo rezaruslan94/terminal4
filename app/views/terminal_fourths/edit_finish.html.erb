@@ -3,6 +3,9 @@
     <div class="col-md-3">
       PO : <%= f.text_field :po, disabled: true %>
     </div>
+      <div class="col-md-3">
+      Item : <%= @terminal_fourth.item.try(:name) %>
+      </div>
     <div class="col-md-3">
       Update Finish : <%= f.text_field :product_finish %>
     </div>
