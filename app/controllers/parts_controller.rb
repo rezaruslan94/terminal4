@@ -6,10 +6,7 @@ class PartsController < ApplicationController
   # GET /parts
   # GET /parts.json
   def select2
-    @parts = Part.where(::Arel::Nodes::SqlLiteral.new('name').matches("%#{sanitize_sql_like(params[:q].to_s.trip.downcase)}%"))
-    respond_to do |format|
-      format.json
-    end
+    @parts = Part.select2(params[:q])
   end
 
   def index

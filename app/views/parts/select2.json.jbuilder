@@ -1,3 +1,5 @@
-json.total_records_before_search Part.count
-
 json.total_count @parts.count
+json.items @parts.paginate(page: params[:page], per_page: 30) do |part|
+  json.id part.id
+  json.name part.name
+end

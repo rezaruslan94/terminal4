@@ -10,8 +10,11 @@ $( document ).ready(function() {
     width: '250px',
     placeholder: "Choose a part",
     allowClear: true
+
   });
 });
+
+
 
 $(document).on('nested:fieldAdded', function(event){
   var field = event.field;

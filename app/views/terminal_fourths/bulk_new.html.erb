@@ -9,11 +9,12 @@
     <% if terminal_fourth.new_record? %>
         <%= f.fields_for :terminal_fourths, terminal_fourth do |terminal_fourth_form_fields| %>
             <%= terminal_fourth_form_fields.text_field :po, placeholder: "PO", :class => "po" %>
-            <%= terminal_fourth_form_fields.collection_select :item_id, Item.all, :id, :name, { include_blank: true }, { :class => "ComboPart" } %>
+            <%= terminal_fourth_form_fields.text_field :item_name, placeholder: "ITEM NAME" %>
+            <%#= terminal_fourth_form_fields.collection_select :item_id, Item.all, :id, :name, { include_blank: true }, { :class => "ComboPart" } %>
             <%= terminal_fourth_form_fields.text_field :qty, placeholder: "QTY" %>
             <%= terminal_fourth_form_fields.text_field :terminal_inspect,placeholder: "INSPECT", :class => "dp" %>
             <%= terminal_fourth_form_fields.text_field :terminal_stuffing,placeholder: "STUFFING", :class => "dp" %>
-            <%= terminal_fourth_form_fields.link_to_remove "DESTROY", :id => "open-contacts-dialog-btn", :class => "btn btn-danger btn-sm", :method => :get %>
+            <%= terminal_fourth_form_fields.link_to_remove "DELETE", :id => "open-contacts-dialog-btn", :class => "btn btn-danger btn-sm", :method => :get %>
         <% end %>
     <% end %>
   <% end %>
