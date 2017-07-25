@@ -22,8 +22,8 @@
   </div>
 
   <div class="row">
-    <div class="col-md-2"><%= f.label :item_id %></div>
-    <div class="col-md-2"><%= f.collection_select(:item_id, Item.all, :id, :name, include_blank: true) %></div>
+    <div class="col-md-2"><%= f.label :item_name %></div>
+    <div class="col-md-2"><%= f.text_field :item_name %></div>
   </div>
 
   <div class="row">
