@@ -28,7 +28,7 @@ include AjaxDatatablesRails::Extensions::WillPaginate
         '5' => record.terminal_inspect,
         '6' => record.terminal_stuffing,
         '7' => link_to('Update Finish', edit_finish_terminal_fourth_path(record)),
-        '8' => link_to('Edit', edit_terminal_fourth_path(record)),
+        '8' => link_to('Update', edit_terminal_fourth_path(record)),
         '9' => link_to('Delete', record, method: :delete, data: {confirm: 'Are you sure?'})
       }
     end

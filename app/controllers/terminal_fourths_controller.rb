@@ -53,6 +53,7 @@ class TerminalFourthsController < ApplicationController
   # GET /terminal_fourths/new
   def new
     @terminal_fourth = TerminalFourth.new
+    @terminal_fourth.terminal4outs.build
   end
 
   # GET /terminal_fourths/1/edit
@@ -80,7 +81,7 @@ class TerminalFourthsController < ApplicationController
   def update
     respond_to do |format|
       if @terminal_fourth.update(terminal_fourth_params)
-        format.html { redirect_to @terminal_fourth, notice: 'Terminal fourth was successfully updated.' }
+        format.html { render :edit, notice: 'Terminal fourth was successfully updated.' }
         format.json { render :show, status: :ok, location: @terminal_fourth }
       else
         format.html { render :edit }
@@ -111,7 +112,8 @@ class TerminalFourthsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def terminal_fourth_params
-      params.require(:terminal_fourth).permit(:po, :qty, :finish, :terminal_inspect, :terminal_stuffing, :buyer_id, :item_name, :product_finish)
+      params.require(:terminal_fourth).permit(:po, :qty, :finish, :terminal_inspect, :terminal_stuffing, :buyer_id, :item_name, :product_finish,
+      terminal4outs_attributes: [:id, :fix, :_destroy])
     end
 
     def insert_terminal_params

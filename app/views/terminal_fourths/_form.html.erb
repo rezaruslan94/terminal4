@@ -1,19 +1,13 @@
-<%= form_for(terminal_fourth) do |f| %>
-  <% if terminal_fourth.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(terminal_fourth.errors.count, "error") %> prohibited this terminal_fourth from being saved:</h2>
+<%= nested_form_for(@terminal_fourth) do |f| %>
 
-      <ul>
-      <% terminal_fourth.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="fixed">
+    <div class="col-md-2"><%= f.label :item_name %></div>
+    <div class="col-md-2"><%= f.text_field :item_name, disabled: true %></div>
+  </div>
 
   <div class="row">
     <div class="col-md-2"><%= f.label :po %></div>
-    <div class="col-md-2"><%= f.text_field :po %></div>
+    <div class="col-md-2"><%= f.text_field :po, disabled: true %></div>
   </div>
 
   <div class="row">
@@ -23,27 +17,38 @@
 
   <div class="row">
     <div class="col-md-2"><%= f.label :item_name %></div>
-    <div class="col-md-2"><%= f.text_field :item_name %></div>
+    <div class="col-md-2"><%= f.text_field :item_name, disabled: true %></div>
   </div>
 
   <div class="row">
     <div class="col-md-2"><%= f.label :qty %></div>
-    <div class="col-md-2"><%= f.text_field :qty %></div>
+    <div class="col-md-2"><%= f.text_field :qty, disabled: true %></div>
   </div>
 
   <div class="row">
     <div class="col-md-2"><%= f.label :terminal_inspect, "Inspect" %></div>
-    <div class="col-md-2"><%= f.text_field :terminal_inspect, :class => "dp" %></div>
+    <div class="col-md-2"><%= f.text_field :terminal_inspect, disabled: true, :class => "dp" %></div>
   </div>
 
   <div class="row">
     <div class="col-md-2"><%= f.label :terminal_stuffing, "Stuffing" %></div>
-    <div class="col-md-2"><%= f.text_field :terminal_stuffing, :class => "dp" %></div>
+    <div class="col-md-2"><%= f.text_field :terminal_stuffing, disabled: true, :class => "dp" %></div>
   </div>
 
+<br>
 
-
-  <div class="actions">
-    <%= f.submit %>
+<%= f.fields_for :terminal4outs do |terminal4out_form_fields| %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= terminal4out_form_fields.text_field :fix, validate: { presence: true, uniqueness: false }, placeholder: "INPUT" %>
+    </div>
+    <div class="col-md-4">
+      <%#= terminal4out_form_fields.link_to_remove "DELETE", :class => "btn btn-danger btn-sm"%>
+    </div>
+  </div>
+  <% end %>
+  <div>
+    <%= f.link_to_add "ADD", :terminal4outs, :class => "btn btn-primary btn-lg", :method => :get %>
+    <%= f.submit 'SAVE', :class => "btn btn-success btn-lg", :method => :get %>
   </div>
 <% end %>

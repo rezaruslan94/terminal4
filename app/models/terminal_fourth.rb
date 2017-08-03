@@ -1,5 +1,7 @@
 class TerminalFourth < ApplicationRecord
   belongs_to :buyer
+  has_many :terminal4outs, inverse_of: :terminal_fourth
+  accepts_nested_attributes_for :terminal4outs, allow_destroy: true
   # belongs_to :item
   attr_accessor :product_finish
   validates :po, :qty, :terminal_inspect, :terminal_stuffing, :buyer_id, :item_name, presence: true
