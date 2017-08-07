@@ -24,7 +24,7 @@ include AjaxDatatablesRails::Extensions::WillPaginate
         '1' => record.buyer.name,
         '2' => record.item_name,
         '3' => record.qty,
-        '4' => record.set_finish,
+        '4' => record.set_minus,
         '5' => record.terminal_inspect,
         '6' => record.terminal_stuffing,
         '7' => link_to('Update Finish', edit_finish_terminal_fourth_path(record)),

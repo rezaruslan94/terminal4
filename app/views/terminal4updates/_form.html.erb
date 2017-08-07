@@ -1,0 +1,31 @@
+<%= form_for(terminal4update) do |f| %>
+  <% if terminal4update.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(terminal4update.errors.count, "error") %> prohibited this terminal4update from being saved:</h2>
+
+      <ul>
+      <% terminal4update.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="Terminal4Update">
+      <div class="">
+        <font size="50">
+      <b>ITEM : </b><%= f.collection_select(:terminal_fourth_id, TerminalFourth.all, :id, :item_name, include_blank: true) %>
+    </font>
+    </div>
+    <br>
+    <div class="">
+      <font size="50">
+      </b><%= f.text_field :qty %>
+    </font>
+    </div>
+    <br>
+    <div class="button">
+      <%= f.submit 'SAVE', :class => "btn btn-primary btn-lg btn-block", :method => :get %>
+    </div>
+  </div>
+<% end %>

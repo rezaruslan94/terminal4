@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :terminal4updates
   resources :terminal4outs
   resources :roles
   resources :terminal_fourths do
