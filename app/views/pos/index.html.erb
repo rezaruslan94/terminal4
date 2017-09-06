@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>PO</h1>
+
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>PO NUMBER</th>
+        <th>BUYER</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pos.each do |po| %>
+        <tr>
+          <td><%= po.number %></td>
+          <td><%= po.buyer.try(:name) %></td>
+          <!-- <td><%#= link_to 'Show', po %></td> -->
+          <td><%= link_to 'EDIT', edit_po_path(po) %></td>
+          <!-- <td><%#= link_to 'DELETE', po, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Po', new_po_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170804073822) do
+ActiveRecord::Schema.define(version: 20170809034848) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -70,6 +70,30 @@ ActiveRecord::Schema.define(version: 20170804073822) do
     t.integer  "part_id"
     t.integer  "area_id"
     t.date     "pic_date"
+  end
+
+  create_table "po_items", force: :cascade do |t|
+    t.integer  "qty"
+    t.date     "po_inspect"
+    t.date     "po_stuffing"
+    t.integer  "po_id"
+    t.integer  "item_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "po_updates", force: :cascade do |t|
+    t.integer  "qty_finish"
+    t.integer  "po_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pos", force: :cascade do |t|
+    t.string   "number"
+    t.integer  "buyer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|

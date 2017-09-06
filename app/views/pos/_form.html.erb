@@ -1,0 +1,35 @@
+<%= nested_form_for(@po, validate: true) do |f| %>
+<div class="form-inputs">
+  <div class="row">
+    <div class="col-md-4">
+      <b> PO NUMBER : </b><%= f.text_field :number, validate: { presence: true, uniqueness: false }, placeholder: "PO NUMBER" %>
+    </div>
+    <div class="col-md-4">
+      <b>BUYER : </b><%= f.collection_select(:buyer_id, Buyer.all, :id, :name, include_blank: true) %>
+    </div>
+  </div>
+</div>
+
+<br><br>
+  <%= f.fields_for :po_items do |po_items_fields| %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= po_items_fields.collection_select(:item_id, Item.all, :id, :name, include_blank: true) %>
+    </div>
+    <div class="col-md-2">
+      <%= po_items_fields.text_field :qty, validate: { presence: true, uniqueness: false }, placeholder: "QTY" %>
+    </div>
+    <div class="col-md-2">
+      <%= po_items_fields.text_field :po_inspect, validate: { presence: true, uniqueness: false }, placeholder: "INSPECT", :class => "dp" %>
+    </div>
+    <div class="col-md-2">
+      <%= po_items_fields.text_field :po_stuffing, validate: { presence: true, uniqueness: false }, placeholder: "STUFFING", :class => "dp" %>
+    </div>
+  </div>
+  <% end %>
+  <br>
+  <div class="action">
+    <%= f.link_to_add "ADD", :po_items, :class => "btn btn-primary btn-lg", :method => :get %>
+    <%= f.submit 'SAVE', :class => "btn btn-success btn-lg", :method => :get %>
+  </div>
+<% end %>

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :po_updates
+  resources :po_items
+  resources :pos
   resources :terminal4updates
   resources :terminal4outs
   resources :roles
@@ -46,6 +49,9 @@ Rails.application.routes.draw do
   # resources :reports, only: [:productivity_people, :productivity_person]
   get 'report_people' =>'reports#productivity_people', :as => :report_people
   get 'report_person' =>'reports#productivity_person', :as => :report_person
+  get 'per_item' =>'reports#per_item', :as => :per_item
+  get 'per_po' =>'reports#per_po', :as => :per_po
+  get 'per_buyer' =>'reports#per_buyer', :as => :per_buyer
   get 'test' =>'reports#test', :as => :test
   get 'show' =>'reports#show', :as => :show
   resources :users

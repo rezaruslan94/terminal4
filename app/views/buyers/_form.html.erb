@@ -1,20 +1,10 @@
-<%= form_for(buyer) do |f| %>
-  <% if buyer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(buyer.errors.count, "error") %> prohibited this buyer from being saved:</h2>
+<%= form_for @buyer, validate: true do |f| %>
 
-      <ul>
-      <% buyer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :name %></div>
+    <div class="col-md-1"><%= f.text_field :name, validate: { presence: true, uniqueness: false } %></div>
   </div>
+  <br>
 
   <div class="actions">
     <%= f.submit %>

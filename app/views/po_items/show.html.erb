@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Qty:</strong>
+  <%= @po_item.qty %>
+</p>
+
+<p>
+  <strong>Po inspect:</strong>
+  <%= @po_item.po_inspect %>
+</p>
+
+<p>
+  <strong>Po stuffing:</strong>
+  <%= @po_item.po_stuffing %>
+</p>
+
+<p>
+  <strong>Po:</strong>
+  <%= @po_item.po_id %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @po_item.item_id %>
+</p>
+
+<%= link_to 'Edit', edit_po_item_path(@po_item) %> |
+<%= link_to 'Back', po_items_path %>

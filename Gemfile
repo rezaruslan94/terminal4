@@ -87,3 +87,8 @@ gem 'ajax-datatables-rails'
 gem "nested_form"
 
 gem "select2-rails"
+
+#Validation
+gem 'client_side_validations'
+gem 'simple_form'
+gem 'client_side_validations-simple_form'

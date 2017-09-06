@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @po.number %>
+</p>
+
+<p>
+  <strong>Buyer:</strong>
+  <%= @po.buyer_id %>
+</p>
+
+<%= link_to 'Edit', edit_po_path(@po) %> |
+<%= link_to 'Back', pos_path %>

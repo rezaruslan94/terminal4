@@ -33,7 +33,20 @@ class ReportsController < ApplicationController
   end
 
   def test
-    @testa = Pic.testa(params[:start_date], params[:end_date], params[:area_combo])
+  end
+
+  def per_item
+    @report_per_item = PoItem.data_report_per_item
+  end
+
+  def per_po
+    @po_updates = PoItem.joins(:po_updates).select('po_id, item_id, po_item_id, qty, sum(qty_finish) as finish, po_inspect, po_stuffing').group(:po_item_id).order(:po_id)
+  end
+
+  def per_buyer
+    @buyer_pos = Po.joins(:buyer).select('number, buyer_id, name as name_buyer')
+    @po_items = @buyer_pos.joins(:po_items).order("buyers.name asc")
+    @po_updates = @po_items.joins(:po_updates).select('po_id, item_id, po_item_id, qty, sum(qty_finish) as finish, po_inspect, po_stuffing').group(:po_item_id).order(:po_id)
   end
 
   def report_params

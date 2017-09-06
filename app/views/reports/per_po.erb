@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  <style type='text/css'>
+    td {
+      border-bottom: 1px solid #CDC1A7;
+      padding: 5px;
+      font-size: 20px;
+      text-align: center;
+    }
+    th {
+      text-align: center;
+      font-family: "Trebuchet MS", Arial, Verdana;
+      font-size: 20px;
+      padding: 5px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: #CDC1A7;
+      /*background-color: #CDC1A7;*/
+      /*color: #993300;*/
+    }
+  </style>
+  </head>
+  <body>
+    <div class="table-responsive">
+
+    <table class="table table-bordered">
+      <!-- <th>PO</th> -->
+      <th>PO</th>
+      <th>BUYER</th>
+      <th>ITEM</th>
+      <th>QTY</th>
+      <th>MINUS</th>
+      <th>INSPECT</th>
+      <th>STUFFING</th>
+      <% @po_updates.each do |terminal4| %>
+      <tr>
+        <td><%= terminal4.po.number %></td>
+        <td> <%= terminal4.po.buyer.name %> </td>
+        <td><%= terminal4.item.name %></td>
+        <td><%= terminal4.qty %></td>
+        <td><%= terminal4.finish - terminal4.qty %></td>
+        <td><%= terminal4.po_inspect %></td>
+        <td><%= terminal4.po_stuffing %></td>
+      <% end %>
+    </tr>
+    </table>
+    <br><br>
+  </div>
+  </body>
+</html>

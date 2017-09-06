@@ -15,37 +15,24 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <% if can? :read, Employee %>
-        <li><%= link_to 'Employee', employees_path %></li>
-        <% end %>
-        <% if can? :read, Department %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productivity <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Department', departments_path %></li>
-            <li><%= link_to 'Division', divisions_path %></li>
-            <li><%= link_to 'Area', areas_path %></li>
-            <li><%= link_to 'Item', items_path %></li>
-            <li><%#= link_to 'Part', parts_path %></li>
-            <li><%= link_to 'PIC', pics_path %></li>
-            <%# if can? :read, Report %>
-            <li><%= link_to "Report Person",report_person_path %></li>
-            <%# end %>
-            <li><%= link_to "Report People",report_people_path %></li>
-            <!-- <li><a href="report_people">test</a></li> -->
+            <li><%= link_to "PER PO",per_po_path %></li>
+            <!-- <li><%#= link_to "PER BUYER",per_buyer_path %></li> -->
+            <li><%= link_to "PER ITEM",per_item_path %></li>
           </ul>
         </li>
-        <% end %>
         <% if can? :read, TerminalFourth %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kanban <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% if can? :read, Buyer %>
-              <li><%= link_to 'Buyer', buyers_path %></li>
+              <li><%= link_to 'BUYER', buyers_path %></li>
+              <li><%= link_to 'Item', items_path %></li>
             <% end %>
-            <% if can? :read, TerminalFourth %>
-              <li><%= link_to 'Terminal 4', terminal_fourths_path %></li>
-            <% end %>
+            <li><%= link_to 'PO', pos_path %></li>
+            <li><%= link_to 'PO UPDATE', new_po_update_path %></li>
           </ul>
         </li>
         <% end %>

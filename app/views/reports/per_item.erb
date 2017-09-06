@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  <style type='text/css'>
+    td {
+      border-bottom: 1px solid #CDC1A7;
+      padding: 5px;
+      font-size: 20px;
+      text-align: center;
+    }
+    th {
+      text-align: center;
+      font-family: "Trebuchet MS", Arial, Verdana;
+      font-size: 20px;
+      padding: 5px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: #CDC1A7;
+      /*background-color: #CDC1A7;*/
+      /*color: #993300;*/
+    }
+  </style>
+  </head>
+  <body>
+    <div class="table-responsive">
+
+    <table class="table table-bordered">
+      <!-- <th>PO</th> -->
+      <th>ITEM</th>
+      <th>QTY</th>
+      <th>QTY FINISH</th>
+      <th>MINUS</th>
+      <% @report_per_item.each do |per_item| %>
+      <tr>
+        <td><%= per_item.name %></td>
+        <td><%= per_item.total_qty %></td>
+        <td><%= per_item.total_qty_finish %></td>
+        <td><%= per_item.minus %></td>
+      <% end %>
+    </tr>
+    </table>
+    <br><br>
+  </div>
+  </body>
+</html>

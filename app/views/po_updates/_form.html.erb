@@ -1,0 +1,38 @@
+<%= form_for @po_update, validate: true do |f| %>
+  <% if po_update.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(po_update.errors.count, "error") %> prohibited this po_update from being saved:</h2>
+
+      <ul>
+      <% po_update.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="Terminal4Update">
+    <font size="10">
+    <div class="row">
+      <div class="col-md-2"><b>ITEM</b></div>
+      <%= f.select(:po_item_id, options_for_select(@po_items.collect { |e|[e.item.name, e.id, {:'number'=>(e.po.number if e.po_id.present?)}]}, nil),{},{:prompt=>'--Pilih Item--', :required=>true, :onchange=>"$('#number').val($(this).find(':selected').attr('number'))"}) %>
+    </div>
+    <div class="row">
+      <div class="col-md-2"><b>PO</b></div>
+      <%= text_field_tag (:number) %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"><b>QTY</b></div>
+    <%= f.text_field :qty_finish, validate: { presence: true, uniqueness: false }, placeholder: "QTY" %>
+    </div>
+    <br>
+    <div class="button">
+      <%= f.submit 'SAVE', :class => "btn btn-primary btn-lg btn-block", :method => :get %>
+    </div>
+    </font>
+  </div>
+
+
+<% end %>

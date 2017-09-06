@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Qty finish:</strong>
+  <%= @po_update.qty_finish %>
+</p>
+
+<p>
+  <strong>Po item:</strong>
+  <%= @po_update.po_item_id %>
+</p>
+
+<%= link_to 'Edit', edit_po_update_path(@po_update) %> |
+<%= link_to 'Back', po_updates_path %>
