@@ -1,5 +1,16 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_po_item, only: [:destroy]
+
+  def destroy
+    @item.destroy
+    respond_to do |format|
+      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+
   # load_and_authorize_resource
 
     def productivity_person
@@ -49,7 +60,17 @@ class ReportsController < ApplicationController
     @po_updates = @po_items.joins(:po_updates).select('po_id, item_id, po_item_id, qty, sum(qty_finish) as finish, po_inspect, po_stuffing').group(:po_item_id).order(:po_id)
   end
 
+  private
+
+    def set_po_item
+
+      @item = Item.find(params[:id])
+
+    end
+
   def report_params
-  params.require(:pic).permit(:wh, :qty, :area_id, :part_id, :employee_id, :start_date, :end_date, :format)
-end
+    params.require(:pic).permit(:wh, :qty, :area_id, :part_id, :employee_id, :start_date, :end_date, :format)
+  end
+
+
 end

@@ -4,7 +4,7 @@ class PoItemsController < ApplicationController
   # GET /po_items
   # GET /po_items.json
   def index
-    @po_items = PoItem.all
+    @po_items = PoItem.all.order('po_id ASC')
   end
 
   # GET /po_items/1

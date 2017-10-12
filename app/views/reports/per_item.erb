@@ -32,12 +32,14 @@
       <th>QTY</th>
       <th>QTY FINISH</th>
       <th>MINUS</th>
+      <!-- <th>ACTION</th> -->
       <% @report_per_item.each do |per_item| %>
       <tr>
         <td><%= per_item.name %></td>
         <td><%= per_item.total_qty %></td>
         <td><%= per_item.total_qty_finish %></td>
         <td><%= per_item.minus %></td>
+        <!-- <td><%#= link_to 'DELETE', per_item, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       <% end %>
     </tr>
     </table>

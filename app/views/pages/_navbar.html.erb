@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REPORT <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "PER PO",per_po_path %></li>
             <!-- <li><%#= link_to "PER BUYER",per_buyer_path %></li> -->
@@ -25,20 +25,21 @@
         </li>
         <% if can? :read, TerminalFourth %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kanban <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KANBAN <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% if can? :read, Buyer %>
               <li><%= link_to 'BUYER', buyers_path %></li>
-              <li><%= link_to 'Item', items_path %></li>
+              <li><%= link_to 'ITEM', items_path %></li>
             <% end %>
             <li><%= link_to 'PO', pos_path %></li>
             <li><%= link_to 'PO UPDATE', new_po_update_path %></li>
+            <li><%= link_to 'CLEANING', po_items_path %></li>
           </ul>
         </li>
         <% end %>
         <% if can? :read, User %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configuration<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONFIGURATION<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% if can? :read, User %>
               <li><%= link_to 'User', admin_users_path %></li>
@@ -50,7 +51,7 @@
         </li>
         <% end %>
         <li>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+          <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

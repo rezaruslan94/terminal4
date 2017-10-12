@@ -1,7 +1,7 @@
 class PoItem < ApplicationRecord
-  belongs_to :po
+  belongs_to :po, dependent: :destroy
   belongs_to :item
-  has_many :po_updates
+  has_many :po_updates, dependent: :destroy
 
   validates :qty, :po_inspect, :po_stuffing, :item_id, presence: true, length: { maximum: 30}, if: :can_validate?
   def can_validate?
